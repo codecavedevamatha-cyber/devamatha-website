@@ -66,7 +66,9 @@ const Header = () => {
               Admission Nodal Officer - 9400111818
             </a>
             <a 
-              href="/fee-payment" 
+              href="https://feebook.southindianbank.bank.in/FeeBookUser/org?id=346" 
+              target="_blank"
+              rel="noopener noreferrer"
               className="font-medium flex items-center gap-2 hover:text-accent transition-colors"
             >
               <Mail className="w-3.5 h-3.5" />

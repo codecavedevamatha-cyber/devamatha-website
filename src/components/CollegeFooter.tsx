@@ -76,14 +76,23 @@ const CollegeFooter = () => (
           <h4 className="font-display text-base font-semibold mb-4">Committees</h4>
           <ul className="space-y-2 text-sm text-gray-600">
             {[
-              "Anti Ragging Committee",
-              "Special Protection Group",
-              "Women's Anti-Harassment Cell",
-              "Students' Grievance Redressal Cell",
-              "Internship Monitoring Committee",
-              "Career Guidance and Placement Cell"
+              { label: "Anti Ragging Committee", href: "/committee/anti-ragging" },
+              { label: "Special Protection Group", href: "/committee/special-protection" },
+              { label: "Women's Anti-Harassment Cell", href: "/committee/women-anti-harassment" },
+              { label: "Students' Grievance Redressal Cell", href: "/committee/students-grievance" },
+              { label: "Internship Monitoring Committee", href: "/committee/internship-monitoring" },
+              { label: "Career Guidance and Placement Cell", href: "/committee/career-guidance" },
+              { label: "National Service Scheme", href: "/students-corner#national-service-scheme" }
             ].map((committee) => (
-              <li key={committee}>{committee}</li>
+              <li key={committee.label}>
+                <Link
+                  to={committee.href}
+                  className="hover:text-accent transition-colors inline-flex items-center gap-1 group text-gray-700"
+                >
+                  {committee.label}
+                  <ArrowUpRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
+                </Link>
+              </li>
             ))}
           </ul>
         </motion.div>

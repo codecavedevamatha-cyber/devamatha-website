@@ -63,6 +63,9 @@ const AntiRaggingPage = () => {
             <h2 className="font-heading text-2xl font-bold text-foreground mb-4">
               Anti Ragging Committee
             </h2>
+            <p className="text-muted-foreground leading-relaxed mb-4">
+              In pursuance of the UGC Regulations on curbing the menace of ragging in higher educational institutions, the College has constituted an Anti-Ragging Committee comprising faculty members, police personnel, legal experts, and other stakeholders. The Committee is entrusted with addressing and preventing any incidents of ragging, both within and outside the college premises.
+            </p>
           </motion.div>
 
           {/* Committee Members */}
@@ -94,22 +97,57 @@ const AntiRaggingPage = () => {
             {/* Members */}
             <div className="bg-white dark:bg-card p-6 rounded-xl shadow-md">
               <h3 className="font-semibold text-lg text-foreground mb-4">Members</h3>
-              <div className="grid md:grid-cols-2 gap-3">
-                {[
-                  "Jismy John",
-                  "Panchayath President",
-                  "Panchayath Member of the ward",
-                  "SI of Police",
-                  "College Union Chairman",
-                  "College Union Vice Chairman"
-                ].map((member, index) => (
-                  <div key={index} className="flex items-center gap-3 p-3 bg-red-50 dark:bg-red-950/20 rounded-lg">
-                    <div className="w-8 h-8 rounded-full bg-red-200 flex items-center justify-center flex-shrink-0">
-                      <Users className="w-4 h-4 text-red-700" />
-                    </div>
-                    <span className="text-sm text-foreground font-medium">{member}</span>
+              <div className="space-y-4">
+                <div className="flex items-center gap-3 p-3 bg-red-50 dark:bg-red-950/20 rounded-lg">
+                  <div className="w-8 h-8 rounded-full bg-red-200 flex items-center justify-center flex-shrink-0">
+                    <Users className="w-4 h-4 text-red-700" />
                   </div>
-                ))}
+                  <div>
+                    <span className="text-sm font-medium text-foreground">Coordinator</span>
+                    <p className="text-xs text-muted-foreground">Manu Joseph</p>
+                  </div>
+                </div>
+                <div className="space-y-2">
+                  <p className="text-sm font-medium text-foreground">Members:</p>
+                  <div className="space-y-1">
+                    <div className="flex items-center gap-2 p-2 bg-red-50 dark:bg-red-950/20 rounded">
+                      <div className="w-4 h-4 rounded-full bg-red-200 flex items-center justify-center flex-shrink-0">
+                        <Users className="w-2 h-2 text-red-700" />
+                      </div>
+                      <span className="text-sm text-foreground">Jismy John</span>
+                    </div>
+                    <div className="flex items-center gap-2 p-2 bg-red-50 dark:bg-red-950/20 rounded">
+                      <div className="w-4 h-4 rounded-full bg-red-200 flex items-center justify-center flex-shrink-0">
+                        <Users className="w-2 h-2 text-red-700" />
+                      </div>
+                      <span className="text-sm text-foreground">Panchayath President</span>
+                    </div>
+                    <div className="flex items-center gap-2 p-2 bg-red-50 dark:bg-red-950/20 rounded">
+                      <div className="w-4 h-4 rounded-full bg-red-200 flex items-center justify-center flex-shrink-0">
+                        <Users className="w-2 h-2 text-red-700" />
+                      </div>
+                      <span className="text-sm text-foreground">Panchayath Member of the ward</span>
+                    </div>
+                    <div className="flex items-center gap-2 p-2 bg-red-50 dark:bg-red-950/20 rounded">
+                      <div className="w-4 h-4 rounded-full bg-red-200 flex items-center justify-center flex-shrink-0">
+                        <Users className="w-2 h-2 text-red-700" />
+                      </div>
+                      <span className="text-sm text-foreground">SI of Police</span>
+                    </div>
+                    <div className="flex items-center gap-2 p-2 bg-red-50 dark:bg-red-950/20 rounded">
+                      <div className="w-4 h-4 rounded-full bg-red-200 flex items-center justify-center flex-shrink-0">
+                        <Users className="w-2 h-2 text-red-700" />
+                      </div>
+                      <span className="text-sm text-foreground">College Union Chairman</span>
+                    </div>
+                    <div className="flex items-center gap-2 p-2 bg-red-50 dark:bg-red-950/20 rounded">
+                      <div className="w-4 h-4 rounded-full bg-red-200 flex items-center justify-center flex-shrink-0">
+                        <Users className="w-2 h-2 text-red-700" />
+                      </div>
+                      <span className="text-sm text-foreground">College Union Vice Chairman</span>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </motion.div>

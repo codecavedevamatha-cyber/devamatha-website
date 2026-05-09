@@ -125,176 +125,401 @@ const StudentsCornerPage = () => {
             </div>
           </motion.div>
 
-          {/* Committees Cards Section */}
+          {/* Committees Section */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.5 }}
+            className="bg-gradient-to-br from-accent/10 to-primary/10 rounded-3xl p-8 border border-accent/20 shadow-xl relative overflow-hidden"
           >
-            <div className="text-center mb-8">
-              <div className="flex items-center justify-center gap-3 mb-4">
-                <div className="w-12 h-12 rounded-full bg-accent flex items-center justify-center shadow-lg">
-                  <Users className="w-6 h-6 text-white" />
+            <div className="absolute inset-0 bg-gradient-to-t from-accent/5 to-primary/5"></div>
+            <div className="relative z-10">
+              <div className="text-center mb-8">
+                <div className="flex items-center justify-center gap-3 mb-4">
+                  <div className="w-12 h-12 rounded-full bg-accent flex items-center justify-center shadow-lg">
+                    <Users className="w-6 h-6 text-white" />
+                  </div>
+                  <h2 className="font-heading text-3xl font-bold text-foreground">Committees</h2>
                 </div>
-                <h2 className="font-heading text-3xl font-bold text-foreground">Committees</h2>
+              </div>
+              
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {/* Anti Ragging Committee */}
+                <motion.div
+                  whileHover={{ scale: 1.02, y: -5 }}
+                  whileTap={{ scale: 0.98 }}
+                  onClick={() => navigate('/committee/anti-ragging')}
+                  className="bg-gradient-to-br from-red-50 to-pink-50 dark:from-red-950/20 dark:to-pink-950/20 rounded-2xl p-6 border border-red-200 dark:border-red-800 shadow-lg cursor-pointer hover:shadow-xl transition-all duration-300"
+                >
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-12 h-12 rounded-full bg-red-100 flex items-center justify-center">
+                      <Shield className="w-6 h-6 text-red-600" />
+                    </div>
+                    <h3 className="font-semibold text-lg text-foreground">Anti Ragging Committee</h3>
+                  </div>
+                  <p className="text-sm text-muted-foreground mb-4">
+                    UGC Regulations on curbing ragging, comprising faculty members, police personnel, and legal experts...
+                  </p>
+                  <div className="flex items-center text-red-600 font-medium text-sm">
+                    <span>View Details</span>
+                    <ArrowRight className="w-4 h-4 ml-1" />
+                  </div>
+                </motion.div>
+
+                {/* Special Protection Group */}
+                <motion.div
+                  whileHover={{ scale: 1.02, y: -5 }}
+                  whileTap={{ scale: 0.98 }}
+                  onClick={() => navigate('/committee/special-protection')}
+                  className="bg-gradient-to-br from-indigo-50 to-blue-50 dark:from-indigo-950/20 dark:to-blue-950/20 rounded-2xl p-6 border border-indigo-200 dark:border-indigo-800 shadow-lg cursor-pointer hover:shadow-xl transition-all duration-300"
+                >
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-12 h-12 rounded-full bg-indigo-100 flex items-center justify-center">
+                      <Shield className="w-6 h-6 text-indigo-600" />
+                    </div>
+                    <h3 className="font-semibold text-lg text-foreground">Special Protection Group (SPG)</h3>
+                  </div>
+                  <p className="text-sm text-muted-foreground mb-4">
+                    University and Government guidelines to ensure safety, dignity, and well-being of students on campus...
+                  </p>
+                  <div className="flex items-center text-indigo-600 font-medium text-sm">
+                    <span>View Details</span>
+                    <ArrowRight className="w-4 h-4 ml-1" />
+                  </div>
+                </motion.div>
+
+                {/* Women's Anti-Harassment Cell */}
+                <motion.div
+                  whileHover={{ scale: 1.02, y: -5 }}
+                  whileTap={{ scale: 0.98 }}
+                  onClick={() => navigate('/committee/women-anti-harassment')}
+                  className="bg-gradient-to-br from-pink-50 to-rose-50 dark:from-pink-950/20 dark:to-rose-950/20 rounded-2xl p-6 border border-pink-200 dark:border-pink-800 shadow-lg cursor-pointer hover:shadow-xl transition-all duration-300"
+                >
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-12 h-12 rounded-full bg-pink-100 flex items-center justify-center">
+                      <Heart className="w-6 h-6 text-pink-600" />
+                    </div>
+                    <h3 className="font-semibold text-lg text-foreground">Women's Anti-Harassment Cell</h3>
+                  </div>
+                  <p className="text-sm text-muted-foreground mb-4">
+                    "Educate a man, you educate an individual; educate a woman, you educate a family." Empowering women and promoting gender sensitivity...
+                  </p>
+                  <div className="flex items-center text-pink-600 font-medium text-sm">
+                    <span>View Details</span>
+                    <ArrowRight className="w-4 h-4 ml-1" />
+                  </div>
+                </motion.div>
+
+                {/* Students' Grievance Redressal Cell */}
+                <motion.div
+                  whileHover={{ scale: 1.02, y: -5 }}
+                  whileTap={{ scale: 0.98 }}
+                  onClick={() => navigate('/committee/students-grievance')}
+                  className="bg-gradient-to-br from-accent/10 to-primary/10 rounded-2xl p-6 border border-accent/30 shadow-lg cursor-pointer hover:shadow-xl transition-all duration-300"
+                >
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-12 h-12 rounded-full bg-accent/20 flex items-center justify-center">
+                      <Users className="w-6 h-6 text-accent-foreground" />
+                    </div>
+                    <h3 className="font-semibold text-lg text-foreground">Students' Grievance Redressal Cell</h3>
+                  </div>
+                  <p className="text-sm text-muted-foreground mb-4">
+                    Addresses student grievances and provides solutions to ensure smooth functioning of the College...
+                  </p>
+                  <div className="flex items-center text-accent font-medium text-sm">
+                    <span>View Details</span>
+                    <ArrowRight className="w-4 h-4 ml-1" />
+                  </div>
+                </motion.div>
+
+                {/* Internship Monitoring Committee */}
+                <motion.div
+                  whileHover={{ scale: 1.02, y: -5 }}
+                  whileTap={{ scale: 0.98 }}
+                  onClick={() => navigate('/committee/internship-monitoring')}
+                  className="bg-gradient-to-br from-teal-50 to-cyan-50 dark:from-teal-950/20 dark:to-cyan-950/20 rounded-2xl p-6 border border-teal-200 dark:border-teal-800 shadow-lg cursor-pointer hover:shadow-xl transition-all duration-300"
+                >
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-12 h-12 rounded-full bg-teal-100 flex items-center justify-center">
+                      <Briefcase className="w-6 h-6 text-teal-600" />
+                    </div>
+                    <h3 className="font-semibold text-lg text-foreground">Internship Monitoring Committee</h3>
+                  </div>
+                  <p className="text-sm text-muted-foreground mb-4">
+                    Supervises, coordinates, and evaluates student internship programmes to ensure meaningful, well-structured experiences...
+                  </p>
+                  <div className="flex items-center text-teal-600 font-medium text-sm">
+                    <span>View Details</span>
+                    <ArrowRight className="w-4 h-4 ml-1" />
+                  </div>
+                </motion.div>
+
+                {/* Career Guidance and Placement Cell */}
+                <motion.div
+                  whileHover={{ scale: 1.02, y: -5 }}
+                  whileTap={{ scale: 0.98 }}
+                  onClick={() => navigate('/committee/career-guidance')}
+                  className="bg-gradient-to-br from-blue-50 to-cyan-50 dark:from-blue-950/20 dark:to-cyan-950/20 rounded-2xl p-6 border border-blue-200 dark:border-blue-800 shadow-lg cursor-pointer hover:shadow-xl transition-all duration-300"
+                >
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center">
+                      <Briefcase className="w-6 h-6 text-blue-600" />
+                    </div>
+                    <h3 className="font-semibold text-lg text-foreground">Career Guidance and Placement Cell</h3>
+                  </div>
+                  <p className="text-sm text-muted-foreground mb-4">
+                    Vital link between students and professional world, equipping them with skills for career development...
+                  </p>
+                  <div className="flex items-center text-blue-600 font-medium text-sm">
+                    <span>View Details</span>
+                    <ArrowRight className="w-4 h-4 ml-1" />
+                  </div>
+                </motion.div>
+
+                {/* Students' Welfare Cell */}
+                <motion.div
+                  whileHover={{ scale: 1.02, y: -5 }}
+                  whileTap={{ scale: 0.98 }}
+                  onClick={() => navigate('/committee/students-welfare')}
+                  className="bg-gradient-to-br from-yellow-50 to-amber-50 dark:from-yellow-950/20 dark:to-amber-950/20 rounded-2xl p-6 border border-yellow-200 dark:border-yellow-800 shadow-lg cursor-pointer hover:shadow-xl transition-all duration-300"
+                >
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-12 h-12 rounded-full bg-yellow-100 flex items-center justify-center">
+                      <Star className="w-6 h-6 text-yellow-600" />
+                    </div>
+                    <h3 className="font-semibold text-lg text-foreground">Students' Welfare Cell</h3>
+                  </div>
+                  <p className="text-sm text-muted-foreground mb-4">
+                    Promotes overall well-being through welfare schemes, scholarships, and healthcare services...
+                  </p>
+                  <div className="flex items-center text-yellow-600 font-medium text-sm">
+                    <span>View Details</span>
+                    <ArrowRight className="w-4 h-4 ml-1" />
+                  </div>
+                </motion.div>
+
+                {/* Academic Committee */}
+                <motion.div
+                  whileHover={{ scale: 1.02, y: -5 }}
+                  whileTap={{ scale: 0.98 }}
+                  onClick={() => navigate('/committee/academic')}
+                  className="bg-gradient-to-br from-purple-50 to-indigo-50 dark:from-purple-950/20 dark:to-indigo-950/20 rounded-2xl p-6 border border-purple-200 dark:border-purple-800 shadow-lg cursor-pointer hover:shadow-xl transition-all duration-300"
+                >
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-12 h-12 rounded-full bg-purple-100 flex items-center justify-center">
+                      <Award className="w-6 h-6 text-purple-600" />
+                    </div>
+                    <h3 className="font-semibold text-lg text-foreground">Academic Committee</h3>
+                  </div>
+                  <p className="text-sm text-muted-foreground mb-4">
+                    Oversees academic affairs, maintains quality, makes recommendations, and formulates strategic priorities...
+                  </p>
+                  <div className="flex items-center text-purple-600 font-medium text-sm">
+                    <span>View Details</span>
+                    <ArrowRight className="w-4 h-4 ml-1" />
+                  </div>
+                </motion.div>
               </div>
             </div>
-            
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {/* Anti Ragging Committee */}
-              <motion.div
-                whileHover={{ scale: 1.02, y: -5 }}
-                whileTap={{ scale: 0.98 }}
-                onClick={() => navigate('/committee/anti-ragging')}
-                className="bg-gradient-to-br from-red-50 to-pink-50 dark:from-red-950/20 dark:to-pink-950/20 rounded-2xl p-6 border border-red-200 dark:border-red-800 shadow-lg cursor-pointer hover:shadow-xl transition-all duration-300"
-              >
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="w-12 h-12 rounded-full bg-red-100 flex items-center justify-center">
-                    <Shield className="w-6 h-6 text-red-600" />
-                  </div>
-                  <h3 className="font-semibold text-lg text-foreground">Anti Ragging Committee</h3>
-                </div>
-                <p className="text-sm text-muted-foreground mb-4">
-                  Ensuring a ragging-free environment for all students
-                </p>
-                <div className="flex items-center text-red-600 font-medium text-sm">
-                  <span>View Details</span>
-                  <ArrowRight className="w-4 h-4 ml-1" />
-                </div>
-              </motion.div>
+          </motion.div>
 
-              {/* Special Protection Group */}
-              <motion.div
-                whileHover={{ scale: 1.02, y: -5 }}
-                whileTap={{ scale: 0.98 }}
-                onClick={() => navigate('/committee/special-protection')}
-                className="bg-gradient-to-br from-indigo-50 to-blue-50 dark:from-indigo-950/20 dark:to-blue-950/20 rounded-2xl p-6 border border-indigo-200 dark:border-indigo-800 shadow-lg cursor-pointer hover:shadow-xl transition-all duration-300"
-              >
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="w-12 h-12 rounded-full bg-indigo-100 flex items-center justify-center">
-                    <Shield className="w-6 h-6 text-indigo-600" />
+          {/* Clubs Section */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.6 }}
+            className="bg-gradient-to-br from-green-50 to-emerald-50 dark:from-green-950/20 dark:to-emerald-950/20 rounded-3xl p-8 border border-green-200 dark:border-green-800 shadow-xl relative overflow-hidden"
+          >
+            <div className="absolute inset-0 bg-gradient-to-t from-green-5 to-emerald-5"></div>
+            <div className="relative z-10">
+              <div className="text-center mb-8">
+                <div className="flex items-center justify-center gap-3 mb-4">
+                  <div className="w-12 h-12 rounded-full bg-green-600 flex items-center justify-center shadow-lg">
+                    <Sparkles className="w-6 h-6 text-white" />
                   </div>
-                  <h3 className="font-semibold text-lg text-foreground">Special Protection Group</h3>
+                  <h2 className="font-heading text-3xl font-bold text-foreground">Clubs</h2>
                 </div>
-                <p className="text-sm text-muted-foreground mb-4">
-                  Campus safety and student protection
-                </p>
-                <div className="flex items-center text-indigo-600 font-medium text-sm">
-                  <span>View Details</span>
-                  <ArrowRight className="w-4 h-4 ml-1" />
-                </div>
-              </motion.div>
+              </div>
+              
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {/* Arts Forum */}
+                <motion.div
+                  whileHover={{ scale: 1.02, y: -5 }}
+                  whileTap={{ scale: 0.98 }}
+                  onClick={() => navigate('/club/arts-forum')}
+                  className="bg-gradient-to-br from-orange-50 to-red-50 dark:from-orange-950/20 dark:to-red-950/20 rounded-2xl p-6 border border-orange-200 dark:border-orange-800 shadow-lg cursor-pointer hover:shadow-xl transition-all duration-300"
+                >
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-12 h-12 rounded-full bg-orange-100 flex items-center justify-center">
+                      <Sparkles className="w-6 h-6 text-orange-600" />
+                    </div>
+                    <h3 className="font-semibold text-lg text-foreground">Arts Forum</h3>
+                  </div>
+                  <p className="text-sm text-muted-foreground mb-4">
+                    Coordinates and promotes artistic, cultural, and creative activities, showcasing student talents...
+                  </p>
+                  <div className="flex items-center text-orange-600 font-medium text-sm">
+                    <span>View Details</span>
+                    <ArrowRight className="w-4 h-4 ml-1" />
+                  </div>
+                </motion.div>
 
-              {/* Women's Anti-Harassment Cell */}
-              <motion.div
-                whileHover={{ scale: 1.02, y: -5 }}
-                whileTap={{ scale: 0.98 }}
-                onClick={() => navigate('/committee/women-anti-harassment')}
-                className="bg-gradient-to-br from-pink-50 to-rose-50 dark:from-pink-950/20 dark:to-rose-950/20 rounded-2xl p-6 border border-pink-200 dark:border-pink-800 shadow-lg cursor-pointer hover:shadow-xl transition-all duration-300"
-              >
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="w-12 h-12 rounded-full bg-pink-100 flex items-center justify-center">
-                    <Heart className="w-6 h-6 text-pink-600" />
+                {/* Nature Club */}
+                <motion.div
+                  whileHover={{ scale: 1.02, y: -5 }}
+                  whileTap={{ scale: 0.98 }}
+                  onClick={() => navigate('/club/nature')}
+                  className="bg-gradient-to-br from-green-50 to-emerald-50 dark:from-green-950/20 dark:to-emerald-950/20 rounded-2xl p-6 border border-green-200 dark:border-green-800 shadow-lg cursor-pointer hover:shadow-xl transition-all duration-300"
+                >
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center">
+                      <Heart className="w-6 h-6 text-green-600" />
+                    </div>
+                    <h3 className="font-semibold text-lg text-foreground">Nature Club</h3>
                   </div>
-                  <h3 className="font-semibold text-lg text-foreground">Women's Anti-Harassment Cell</h3>
-                </div>
-                <p className="text-sm text-muted-foreground mb-4">
-                  Empowering women and ensuring safety
-                </p>
-                <div className="flex items-center text-pink-600 font-medium text-sm">
-                  <span>View Details</span>
-                  <ArrowRight className="w-4 h-4 ml-1" />
-                </div>
-              </motion.div>
+                  <p className="text-sm text-muted-foreground mb-4">
+                    Promotes environmental awareness and eco-friendly practices, organizing environmental protection activities...
+                  </p>
+                  <div className="flex items-center text-green-600 font-medium text-sm">
+                    <span>View Details</span>
+                    <ArrowRight className="w-4 h-4 ml-1" />
+                  </div>
+                </motion.div>
 
-              {/* Students' Grievance Redressal Cell */}
-              <motion.div
-                whileHover={{ scale: 1.02, y: -5 }}
-                whileTap={{ scale: 0.98 }}
-                onClick={() => navigate('/committee/students-grievance')}
-                className="bg-gradient-to-br from-accent/10 to-primary/10 rounded-2xl p-6 border border-accent/30 shadow-lg cursor-pointer hover:shadow-xl transition-all duration-300"
-              >
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="w-12 h-12 rounded-full bg-accent/20 flex items-center justify-center">
-                    <Users className="w-6 h-6 text-accent-foreground" />
+                {/* Film, Theatre and Radio Club */}
+                <motion.div
+                  whileHover={{ scale: 1.02, y: -5 }}
+                  whileTap={{ scale: 0.98 }}
+                  onClick={() => navigate('/club/film-theatre-radio')}
+                  className="bg-gradient-to-br from-purple-50 to-pink-50 dark:from-purple-950/20 dark:to-pink-950/20 rounded-2xl p-6 border border-purple-200 dark:border-purple-800 shadow-lg cursor-pointer hover:shadow-xl transition-all duration-300"
+                >
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-12 h-12 rounded-full bg-purple-100 flex items-center justify-center">
+                      <Activity className="w-6 h-6 text-purple-600" />
+                    </div>
+                    <h3 className="font-semibold text-lg text-foreground">Film, Theatre & Radio Club</h3>
                   </div>
-                  <h3 className="font-semibold text-lg text-foreground">Students' Grievance Cell</h3>
-                </div>
-                <p className="text-sm text-muted-foreground mb-4">
-                  Addressing student concerns effectively
-                </p>
-                <div className="flex items-center text-accent font-medium text-sm">
-                  <span>View Details</span>
-                  <ArrowRight className="w-4 h-4 ml-1" />
-                </div>
-              </motion.div>
+                  <p className="text-sm text-muted-foreground mb-4">
+                    Introduces students to creative broadcasting and media platforms, showcasing talents and communication skills...
+                  </p>
+                  <div className="flex items-center text-purple-600 font-medium text-sm">
+                    <span>View Details</span>
+                    <ArrowRight className="w-4 h-4 ml-1" />
+                  </div>
+                </motion.div>
 
-              {/* Internship Monitoring Committee */}
-              <motion.div
-                whileHover={{ scale: 1.02, y: -5 }}
-                whileTap={{ scale: 0.98 }}
-                onClick={() => navigate('/committee/internship-monitoring')}
-                className="bg-gradient-to-br from-teal-50 to-cyan-50 dark:from-teal-950/20 dark:to-cyan-950/20 rounded-2xl p-6 border border-teal-200 dark:border-teal-800 shadow-lg cursor-pointer hover:shadow-xl transition-all duration-300"
-              >
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="w-12 h-12 rounded-full bg-teal-100 flex items-center justify-center">
-                    <Briefcase className="w-6 h-6 text-teal-600" />
+                {/* Literary Club */}
+                <motion.div
+                  whileHover={{ scale: 1.02, y: -5 }}
+                  whileTap={{ scale: 0.98 }}
+                  onClick={() => navigate('/club/literary')}
+                  className="bg-gradient-to-br from-blue-50 to-cyan-50 dark:from-blue-950/20 dark:to-cyan-950/20 rounded-2xl p-6 border border-blue-200 dark:border-blue-800 shadow-lg cursor-pointer hover:shadow-xl transition-all duration-300"
+                >
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center">
+                      <FileText className="w-6 h-6 text-blue-600" />
+                    </div>
+                    <h3 className="font-semibold text-lg text-foreground">Literary Club</h3>
                   </div>
-                  <h3 className="font-semibold text-lg text-foreground">Internship Monitoring</h3>
-                </div>
-                <p className="text-sm text-muted-foreground mb-4">
-                  Supervising student internship programmes
-                </p>
-                <div className="flex items-center text-teal-600 font-medium text-sm">
-                  <span>View Details</span>
-                  <ArrowRight className="w-4 h-4 ml-1" />
-                </div>
-              </motion.div>
+                  <p className="text-sm text-muted-foreground mb-4">
+                    Platform for literature, quizzing, debating, and creative writing, improving fluency and confidence...
+                  </p>
+                  <div className="flex items-center text-blue-600 font-medium text-sm">
+                    <span>View Details</span>
+                    <ArrowRight className="w-4 h-4 ml-1" />
+                  </div>
+                </motion.div>
 
-              {/* Career Guidance and Placement Cell */}
-              <motion.div
-                whileHover={{ scale: 1.02, y: -5 }}
-                whileTap={{ scale: 0.98 }}
-                onClick={() => navigate('/committee/career-guidance')}
-                className="bg-gradient-to-br from-blue-50 to-cyan-50 dark:from-blue-950/20 dark:to-cyan-950/20 rounded-2xl p-6 border border-blue-200 dark:border-blue-800 shadow-lg cursor-pointer hover:shadow-xl transition-all duration-300"
-              >
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center">
-                    <Briefcase className="w-6 h-6 text-blue-600" />
+                {/* Commerce Club */}
+                <motion.div
+                  whileHover={{ scale: 1.02, y: -5 }}
+                  whileTap={{ scale: 0.98 }}
+                  onClick={() => navigate('/club/commerce')}
+                  className="bg-gradient-to-br from-indigo-50 to-blue-50 dark:from-indigo-950/20 dark:to-blue-950/20 rounded-2xl p-6 border border-indigo-200 dark:border-indigo-800 shadow-lg cursor-pointer hover:shadow-xl transition-all duration-300"
+                >
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-12 h-12 rounded-full bg-indigo-100 flex items-center justify-center">
+                      <Building className="w-6 h-6 text-indigo-600" />
+                    </div>
+                    <h3 className="font-semibold text-lg text-foreground">Commerce Club</h3>
                   </div>
-                  <h3 className="font-semibold text-lg text-foreground">Career Guidance & Placement</h3>
-                </div>
-                <p className="text-sm text-muted-foreground mb-4">
-                  Bridging education and professional success
-                </p>
-                <div className="flex items-center text-blue-600 font-medium text-sm">
-                  <span>View Details</span>
-                  <ArrowRight className="w-4 h-4 ml-1" />
-                </div>
-              </motion.div>
+                  <p className="text-sm text-muted-foreground mb-4">
+                    Enhances academic and professional skills through practical exposure to commerce, business, and finance...
+                  </p>
+                  <div className="flex items-center text-indigo-600 font-medium text-sm">
+                    <span>View Details</span>
+                    <ArrowRight className="w-4 h-4 ml-1" />
+                  </div>
+                </motion.div>
 
-              {/* Students' Welfare Cell */}
-              <motion.div
-                whileHover={{ scale: 1.02, y: -5 }}
-                whileTap={{ scale: 0.98 }}
-                onClick={() => navigate('/committee/students-welfare')}
-                className="bg-gradient-to-br from-yellow-50 to-amber-50 dark:from-yellow-950/20 dark:to-amber-950/20 rounded-2xl p-6 border border-yellow-200 dark:border-yellow-800 shadow-lg cursor-pointer hover:shadow-xl transition-all duration-300"
-              >
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="w-12 h-12 rounded-full bg-yellow-100 flex items-center justify-center">
-                    <Star className="w-6 h-6 text-yellow-600" />
+                {/* Management Club */}
+                <motion.div
+                  whileHover={{ scale: 1.02, y: -5 }}
+                  whileTap={{ scale: 0.98 }}
+                  onClick={() => navigate('/club/management')}
+                  className="bg-gradient-to-br from-teal-50 to-cyan-50 dark:from-teal-950/20 dark:to-cyan-950/20 rounded-2xl p-6 border border-teal-200 dark:border-teal-800 shadow-lg cursor-pointer hover:shadow-xl transition-all duration-300"
+                >
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-12 h-12 rounded-full bg-teal-100 flex items-center justify-center">
+                      <Target className="w-6 h-6 text-teal-600" />
+                    </div>
+                    <h3 className="font-semibold text-lg text-foreground">Management Club</h3>
                   </div>
-                  <h3 className="font-semibold text-lg text-foreground">Students' Welfare Cell</h3>
-                </div>
-                <p className="text-sm text-muted-foreground mb-4">
-                  Supporting student well-being and development
-                </p>
-                <div className="flex items-center text-yellow-600 font-medium text-sm">
-                  <span>View Details</span>
-                  <ArrowRight className="w-4 h-4 ml-1" />
-                </div>
-              </motion.div>
+                  <p className="text-sm text-muted-foreground mb-4">
+                    Develops leadership qualities, managerial skills, and entrepreneurial abilities through practical management concepts...
+                  </p>
+                  <div className="flex items-center text-teal-600 font-medium text-sm">
+                    <span>View Details</span>
+                    <ArrowRight className="w-4 h-4 ml-1" />
+                  </div>
+                </motion.div>
+
+                {/* IT Club */}
+                <motion.div
+                  whileHover={{ scale: 1.02, y: -5 }}
+                  whileTap={{ scale: 0.98 }}
+                  onClick={() => navigate('/club/it')}
+                  className="bg-gradient-to-br from-cyan-50 to-blue-50 dark:from-cyan-950/20 dark:to-blue-950/20 rounded-2xl p-6 border border-cyan-200 dark:border-cyan-800 shadow-lg cursor-pointer hover:shadow-xl transition-all duration-300"
+                >
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-12 h-12 rounded-full bg-cyan-100 flex items-center justify-center">
+                      <Award className="w-6 h-6 text-cyan-600" />
+                    </div>
+                    <h3 className="font-semibold text-lg text-foreground">IT Club</h3>
+                  </div>
+                  <p className="text-sm text-muted-foreground mb-4">
+                    Creates atmosphere for students to share IT knowledge and skills, promoting innovation and technical competence...
+                  </p>
+                  <div className="flex items-center text-cyan-600 font-medium text-sm">
+                    <span>View Details</span>
+                    <ArrowRight className="w-4 h-4 ml-1" />
+                  </div>
+                </motion.div>
+
+                {/* Skill & Entrepreneurial Club */}
+                <motion.div
+                  whileHover={{ scale: 1.02, y: -5 }}
+                  whileTap={{ scale: 0.98 }}
+                  onClick={() => navigate('/club/skill-entrepreneurial')}
+                  className="bg-gradient-to-br from-yellow-50 to-amber-50 dark:from-yellow-950/20 dark:to-amber-950/20 rounded-2xl p-6 border border-yellow-200 dark:border-yellow-800 shadow-lg cursor-pointer hover:shadow-xl transition-all duration-300"
+                >
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-12 h-12 rounded-full bg-yellow-100 flex items-center justify-center">
+                      <Star className="w-6 h-6 text-yellow-600" />
+                    </div>
+                    <h3 className="font-semibold text-lg text-foreground">Skill & Entrepreneurial Club</h3>
+                  </div>
+                  <p className="text-sm text-muted-foreground mb-4">
+                    Initiates career-oriented skill enhancement activities to improve employability and entrepreneurial culture...
+                  </p>
+                  <div className="flex items-center text-yellow-600 font-medium text-sm">
+                    <span>View Details</span>
+                    <ArrowRight className="w-4 h-4 ml-1" />
+                  </div>
+                </motion.div>
+              </div>
             </div>
           </motion.div>
 

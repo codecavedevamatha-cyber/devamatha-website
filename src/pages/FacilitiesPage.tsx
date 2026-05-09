@@ -19,7 +19,7 @@ const facilities = [
   { icon: Utensils, name: "Canteen", description: "The College Canteen provides hygienic and affordable food for students and staff. It serves as a common space for relaxation and social interaction within the campus." },
   { icon: Bed, name: "Hostel", description: "Separate hostel facilities are available for boys and girls, offering a safe and disciplined living environment with necessary amenities for comfortable accommodation." },
   { icon: Car, name: "Parking", description: "Adequate parking space is provided within the campus for both students and staff, ensuring convenience and proper vehicle management." },
-  { icon: Building, name: "South Indian Bank & ATM", description: "Banking services and ATM facilities are available within the campus, enabling easy access to financial transactions for students and staff." },
+  { icon: Building, name: "Bank & ATM", description: "Banking services and ATM facilities are available within the campus, enabling easy access to financial transactions for students and staff." },
   { icon: Monitor, name: "Akshaya Centre", description: "The Akshaya Centre in the campus facilitates various e-governance services, online applications, and digital support services, benefiting students in accessing government and online resources efficiently." }
 ];
 

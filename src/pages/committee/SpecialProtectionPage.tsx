@@ -80,7 +80,7 @@ const SpecialProtectionPage = () => {
               Special Protection Group (SPG)
             </h2>
             <p className="text-muted-foreground leading-relaxed mb-4">
-              The Special Protection Group (SPG), constituted as per the guidelines of the University and Government of Kerala, is a college-level committee constituted. It primarily focuses on preventing harassment, ragging, and any form of abuse, while promoting a secure and inclusive educational environment.
+              The Special Protection Group (SPG), constituted as per the guidelines of the University and Government of Kerala, is a college-level committee constituted to ensure the safety, dignity, and well-being of students on campus. It primarily focuses on preventing harassment, ragging, and any form of abuse, while promoting a secure and inclusive educational environment.
             </p>
             <p className="text-muted-foreground leading-relaxed">
               The SPG is established to create a protective framework within the institution where students can study without fear. It works proactively to identify risks, respond to grievances, and uphold discipline and ethical conduct.

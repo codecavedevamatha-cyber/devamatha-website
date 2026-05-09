@@ -25,6 +25,15 @@ import StudentsGrievancePage from "./pages/committee/StudentsGrievancePage";
 import InternshipMonitoringPage from "./pages/committee/InternshipMonitoringPage";
 import CareerGuidancePage from "./pages/committee/CareerGuidancePage";
 import StudentsWelfarePage from "./pages/committee/StudentsWelfarePage";
+import AcademicPage from "./pages/committee/AcademicPage";
+import ArtsForumPage from "./pages/club/ArtsForumPage";
+import NatureClubPage from "./pages/club/NatureClubPage";
+import FilmTheatreRadioPage from "./pages/club/FilmTheatreRadioPage";
+import LiteraryClubPage from "./pages/club/LiteraryClubPage";
+import CommerceClubPage from "./pages/club/CommerceClubPage";
+import ManagementClubPage from "./pages/club/ManagementClubPage";
+import ITClubPage from "./pages/club/ITClubPage";
+import SkillEntrepreneurialPage from "./pages/club/SkillEntrepreneurialPage";
 import NotFound from "./pages/NotFound";
 import { LoadingScreen } from "./components/LoadingScreen";
 
@@ -96,6 +105,15 @@ const App = () => {
             <Route path="/committee/internship-monitoring" element={<InternshipMonitoringPage />} />
             <Route path="/committee/career-guidance" element={<CareerGuidancePage />} />
             <Route path="/committee/students-welfare" element={<StudentsWelfarePage />} />
+            <Route path="/committee/academic" element={<AcademicPage />} />
+            <Route path="/club/arts-forum" element={<ArtsForumPage />} />
+            <Route path="/club/nature" element={<NatureClubPage />} />
+            <Route path="/club/film-theatre-radio" element={<FilmTheatreRadioPage />} />
+            <Route path="/club/literary" element={<LiteraryClubPage />} />
+            <Route path="/club/commerce" element={<CommerceClubPage />} />
+            <Route path="/club/management" element={<ManagementClubPage />} />
+            <Route path="/club/it" element={<ITClubPage />} />
+            <Route path="/club/skill-entrepreneurial" element={<SkillEntrepreneurialPage />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>

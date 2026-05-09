@@ -17,7 +17,7 @@ const departmentData: Record<string, any> = {
       "Students are actively encouraged to participate in various literary competitions conducted within the college, which helps nurture their creative and critical abilities. Additionally, the Literary Club serves as a vibrant platform that promotes serious reading habits, encouraging students to broaden their intellectual perspectives and deepen their appreciation of literature."
     ],
     programmes: [
-      "English Literature with Journalism.",
+      "BA English Literature with Journalism.",
       "M.A. in English Language and Literature."
     ],
     faculty: [
