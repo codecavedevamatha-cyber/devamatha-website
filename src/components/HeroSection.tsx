@@ -133,7 +133,7 @@ const HeroSection = () => {
     <section id="home" ref={sectionRef} className="relative min-h-[100vh] flex items-center justify-center overflow-hidden bg-college-navy selection:bg-accent/40">
       {/* Background with Parallax and Slider */}
       <motion.div className="absolute inset-0" style={{ y: bgY }}>
-        {currentSlide === 0 && (
+        {showText && (
           <div className="absolute inset-0 bg-gradient-to-b from-college-navy/30 via-college-navy/50 to-college-navy/80 z-10" />
         )}
         <AnimatePresence mode="sync">
@@ -153,7 +153,7 @@ const HeroSection = () => {
       </motion.div>
 
       {/* Animated Aurora Orbs */}
-      {currentSlide === 0 && (
+      {showText && (
         <div className="absolute inset-0 z-10 overflow-hidden pointer-events-none">
           <motion.div 
             animate={{ 
