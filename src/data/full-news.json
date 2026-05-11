@@ -5,7 +5,7 @@
         "title": "SPICA - Physics Seminar",
         "date": "04 September",
         "description": "A Seminar on Talk on Journey of Antimatter through the Material World, was conducted for Physics Department. Prof. Dr. PMG Nambeesan, Scientist, SAHA Institute of Nuclear Physics handled the seminar",
-        "image": "public/news-img/news1.jpg",
+        "image": "/news-img/news1.jpg",
         "category": "Academic",
         "featured": true
     },
@@ -15,7 +15,7 @@
         "title": "Relief To Flood Victims",
         "date": "11 September",
         "description": "As a compassionate gesture towards flood victims, the college NSS unit distributed food kits containing various food essential to victims of Chengalayi area. The programme was inaugurated by Sreekandapuram Municipality chairman. The CI of Sreeknadapuram, College Prinicpal, NSS program officer, NSS Voulnteers and staff participated in the programme.",
-        "image": "public/news-img/news2.jpg",
+        "image": "/news-img/news2.jpg",
         "category": "Social Initiative",
         "featured": true
     },
@@ -25,7 +25,7 @@
         "title": "Gandhi Jayanthi Week Celebrations",
         "date": "01 October",
         "description": "To mark the 150th birth anniversary of Mahatma Gandhi this year various programmes were orgnised in the college. Dr. Khadar Mangad, former Vice Chancellor of Kannur University inaugurated the Ghandhi Jyanathi Week Celebrations. Various programmes like rallies, poster competitions, debates, lectures, quiz competitions, photo exhibitions, blood donation camp were also orgnised.",
-        "image": "public/news-img/news3.jpg",
+        "image": "/news-img/news3.jpg",
         "category": "Event",
         "featured": true
     },
@@ -35,7 +35,7 @@
         "title": "Drug Awareness Seminar",
         "date": "03 October",
         "description": "An awareness programme on Drug Abuse among Youth was organized at the college as part of the Gandhi Jayanthi Week Celebrations. A senior police officer held the class effectively creating a thought among the students.",
-        "image": "public/news-img/news4.jpg",
+        "image": "/news-img/news4.jpg",
         "category": "Academic",
         "featured": false
     },
@@ -45,7 +45,7 @@
         "title": "Blood Donation Camp",
         "date": "26 October",
         "description": "A blood donation camp was organised on 26/09/ Thursday by the college NSS unit in collaboration with district hospital Kannur. The camp was inaugurated by the principal Dr.M.J Mathew, and the medical officer Dr. Shahidha gave few instructions for the smooth conducting of the camp. It was open for all students ,so the students from all classes also came to donate their blood, in which more than 50 units of was donated by both students and the staff members. About 50 blood pouches collected were safely dispatched to the blood bank Kannur.",
-        "image": "public/news-img/news5.jpg",
+        "image": "/news-img/news5.jpg",
         "category": "Social Initiative",
         "featured": false
     },
@@ -55,7 +55,7 @@
         "title": "Gandhi Smrithi Yathra",
         "date": "26 October",
         "description": "As part of Gandhi Jayandhi week celebrations, our college NSS unit organised Gandhi smrithi yathra and Swachh Bharath programme (cleaning of paisakary town ) on the occasion of Gandhi Jayandhi, on 2nd oct. in association with Jana Maithri police payyavoor. The programme was inaugurated by the principal Dr. M.J Mathew, flag off by K. Vinodhan S.I of police payyavoor and cleaning of paisakary town inaugurated by the ward member Binoy Alingathadathil. About 100 NSS volunteers participated in the rally and cleaning, along with the Jana Maithri police.",
-        "image": "public/news-img/news6.jpg",
+        "image": "/news-img/news6.jpg",
         "category": "Social Initiative",
         "featured": false
     },
@@ -65,7 +65,7 @@
         "title": "Intercollegiate Workshop",
         "date": "08 November",
         "description": "An Intercollegiate Workshop in Graduate and Post Graduate Dissertation in English: Research and Writing was conducted on 8th November. 125 students from neighboring colleges participated in the workshop.",
-        "image": "public/news-img/news7.jpg",
+        "image": "/news-img/news7.jpg",
         "category": "Academic",
         "featured": false
     },
@@ -75,7 +75,7 @@
         "title": "Hand Sanitizer Preparation",
         "date": "18 March",
         "description": "Under the initiative of the IQAC and Department of Chemistry, the faculty and final year students prepared hand sanitizer to fight COVID -19. The distribution was inaugurated by the Manager Rev.Fr. Sibi Palakuzhy. Sanitizer was prepared under the guidance of HoD of Chemistry, Mrs. Beena E.K., faculty members Mrs. Jisha Francis, Ms. Nice Roy, Principal Dr. M.J. Mathew, Vice Principal Mr. Tomichen E.M., IQAC Coodinator Mr. Saiju P.J. and Staff advisor Mrs. Mercy K.P. The sanitizer was made available in the office and all the departments. Depending on demands, it will be distributed to the public also.",
-        "image": "public/news-img/news8.jpg",
+        "image": "/news-img/news8.jpg",
         "category": "Academic",
         "featured": false
     },
@@ -85,7 +85,7 @@
         "title": "Christmas Vibes",
         "date": "21 December",
         "description": "The month of December brings a lot of warmth, hope and glad tidings. To spread the message of love and good cheer, the students of DMC presented a spectacular event with the entire vibe of the season. Arts forum conducted carol song competition and cultural programs to bring the festive aura.",
-        "image": "public/news-img/news9.jpg",
+        "image": "/news-img/news9.jpg",
         "category": "Event",
         "featured": false
     },
@@ -95,7 +95,7 @@
         "title": "Jerusalema - Christmas Dance",
         "date": "24 December",
         "description": "Jerusalema - Christmas Dance... Beyond the Covid Blues... Team DMC with the Blessings of our Manager Very. Rev. Siby Palakkuzhy under the Captaincy of Dr. M. J. Mathew our loving principal... the whole staff and students steps together in the Christmas rhythm.... We wish you all a Merry Christmas and Happy New Year...",
-        "image": "public/news-img/news10.jpg",
+        "image": "/news-img/news10.jpg",
         "category": "Event",
         "featured": false
     },
@@ -105,7 +105,7 @@
         "title": "Induction Ceremony",
         "date": "08 November",
         "description": "Induction ceremony of the new batch of -23 was conducted under the captaincy of Arts forum. The new batch of DMC had been warmly welcomed with a lamp lightening ceremony that embodies their new pace to the world of knowledge.",
-        "image": "public/news-img/news11.jpg",
+        "image": "/news-img/news11.jpg",
         "category": "Event",
         "featured": false
     },
@@ -115,7 +115,7 @@
         "title": "Gender Sensitization Campaign",
         "date": "11 March",
         "description": "Women's Forum organized a Gender Sensitization Campaign on 11th March  in association with Women and Child Department, Kannur. The classes were handled by Mr. Jestin Mathew, Project Consultant, NSS Technical Cell, Kerala. Seminar, hair donation campaign and other competitions were held as part of the program.",
-        "image": "public/news-img/news12.jpg",
+        "image": "/news-img/news12.jpg",
         "category": "Social Initiative",
         "featured": false
     },
@@ -125,7 +125,7 @@
         "title": "NSS Volunteer to attend National Integration Camp",
         "date": "13 March",
         "description": "NSS Volunteer, Dylan Emmanuel Dominic was selected to attend National Integration Camp conducted at Bangalore representing Kannur University .",
-        "image": "public/news-img/news13.jpg",
+        "image": "/news-img/news13.jpg",
         "category": "Social Initiative",
         "featured": false
     },
@@ -135,7 +135,7 @@
         "title": "Kalaripayatt Champion",
         "date": "19 March",
         "description": "Mahima M of II MA English won the Kannur University Intercollegiate Kalaripayat Competition (Marichiruthi- 2nd / Dilchail Kithiruthi- 3rd ) held at Moraza Co-operative Arts & Science College",
-        "image": "public/news-img/news14.jpg",
+        "image": "/news-img/news14.jpg",
         "category": "Achievement",
         "featured": false
     },
@@ -145,7 +145,7 @@
         "title": "World Diabetes Day - Special Event by NSS",
         "date": "15 November",
         "description": "NSS students organized a special event on World Diabetes Day As the number of diabetes patients in the world is increasing alarmingly, the students set an example by distributing the pamphlet prepared by the students to the houses, shops and public places around the college to know about the disease called diabetes, the chances of getting the disease, the conditions and the preventive measures.",
-        "image": "public/news-img/news15.jpg",
+        "image": "/news-img/news15.jpg",
         "category": "Event",
         "featured": false
     },
@@ -155,7 +155,7 @@
         "title": "Bagged Admission for PhD in IIT",
         "date": "02 December",
         "description": "Mrs. Shareefa T P, assistant professor in management Studies is selected to do PhD in tyhe prestigious IIT Chennai. Devamatha College feels proud of your achievement and wish success in all your endeavours",
-        "image": "public/news-img/news16.jpg",
+        "image": "/news-img/news16.jpg",
         "category": "Achievement",
         "featured": false
     },
@@ -165,7 +165,7 @@
         "title": "Frosty Fest - Chrismas Celebrations",
         "date": "22 December",
         "description": "College celebrated Christmas on 22nd December . The campus was well decorated with crib, Christmas tree, stars and bells. The students and teachers sang Christmas Carols and Santa Claus entertained the gathering with singing and dancing. To add colour to the celebrations, food fest was also conducted in the campus.",
-        "image": "public/news-img/news17.jpg",
+        "image": "/news-img/news17.jpg",
         "category": "Event",
         "featured": false
     },
@@ -175,7 +175,7 @@
         "title": "Two-Day Residential Programme",
         "date": "02 March",
         "description": "College organised a Two-Day Residential Programme for the final year students",
-        "image": "public/news-img/news18.jpg",
+        "image": "/news-img/news18.jpg",
         "category": "Event",
         "featured": false
     },
@@ -185,7 +185,7 @@
         "title": "Aleena Tree",
         "date": "03 March",
         "description": "Planted a memorial tree on the campus, today, as an everlasting tribute to a dear departed. Aleena K T (3rd BA English) left for the heavenly abode in the wee hours of the Xmas day 22 following a tragic road accident. A memorial tree is a physical reminder that her loving presence continues even after the soul departs. The tree on the campus will be remembered after her name. The best outgoing student award for a boy and a girl in her name is also declared today.",
-        "image": "public/news-img/news19.jpg",
+        "image": "/news-img/news19.jpg",
         "category": "Campus News",
         "featured": false
     },
@@ -195,7 +195,7 @@
         "title": "College Day",
         "date": "16 March",
         "description": "College day was celebrated on 16th of March  at 10 AM in the open auditorium. A spectacular Cultural programme was presented by our students.",
-        "image": "public/news-img/news20.jpg",
+        "image": "/news-img/news20.jpg",
         "category": "Event",
         "featured": false
     },
@@ -205,7 +205,7 @@
         "title": "Nature Club Hosts Thrilling Nature Quiz!",
         "date": "13 July",
         "description": "In a bid to promote environmental awareness and celebrate the beauty of nature, the Nature Clubrecently organized an exhilarating Nature Quiz. Enthusiastic participants gathered to test their knowledge and passion for the natural world. The quiz wasn't just about competition; it served as an educational platform, offering insights into the wonders of our planet and the importance of preserving its biodiversity.",
-        "image": "public/news-img/news21.jpg",
+        "image": "/news-img/news21.jpg",
         "category": "Academic",
         "featured": false
     },
@@ -215,7 +215,7 @@
         "title": "Freshers' Day Ignites Campus Spirit",
         "date": "14 September",
         "description": "Amidst an atmosphere buzzing with excitement and anticipation, the campus ecently witnessed the vibrant celebration of Freshers' Day. The event, a hallmark in the institution's calendar, welcomed new students with open arms, igniting the spirit of camaraderie and fostering a sense of belonging within the campus community.",
-        "image": "public/news-img/news22.jpg",
+        "image": "/news-img/news22.jpg",
         "category": "Event",
         "featured": false
     },
@@ -225,7 +225,7 @@
         "title": "Campus Comes Alive with Onam Celebrations!",
         "date": "25 September",
         "description": "The vibrant colors and rhythmic beats, filled the air as the campus came alive with the joyous festivities of Onam. Marking the auspicious occasion with fervor and enthusiasm, students, faculty, and staff united to celebrate the rich cultural heritage of Kerala. Decked in traditional attire, the campus exuded an aura of cheerfulness and camaraderie as everyone gathered to partake in the festivities. The day began with the traditional floral carpet, or 'Pookalam,' showcasing intricate designs crafted with vibrant petals and leaves, symbolizing prosperity and happiness.",
-        "image": "public/news-img/news23.jpg",
+        "image": "/news-img/news23.jpg",
         "category": "Event",
         "featured": false
     },
@@ -235,7 +235,7 @@
         "title": "BBA Hospital Administration Students visit Hospital",
         "date": "10 December",
         "description": "In a bid to bridge theoretical knowledge with practical exposure, the BBA Hospital Administration students recently embarked on a enlightening visit to St. Joseph's Hospital, Karuvanchal. he excursion provided an invaluable opportunity for the budding healthcare administrators to gain firsthand insights into the dynamics of hospital operations and management.",
-        "image": "public/news-img/news24.jpg",
+        "image": "/news-img/news24.jpg",
         "category": "Campus News",
         "featured": false
     },
@@ -245,7 +245,7 @@
         "title": "Frosty Fest 23 - X-citing Xmas Envelops Campus!",
         "date": "21 December",
         "description": "Amidst the crisp winter air and the twinkling lights adorning every corner, the campus was transformed into a festive wonderland as students, faculty, and staff came together to celebrate the joyous occasion of Christmas. The event continued with a variety of activities and performances that captured the essence of the holiday season. From heartwarming nativity plays to lively dance performances and soulful musical renditions, each act added to the festive ambiance, filling hearts with joy and laughter. A delicious feast awaited everyone.",
-        "image": "public/news-img/news25.jpg",
+        "image": "/news-img/news25.jpg",
         "category": "Event",
         "featured": false
     },
@@ -255,7 +255,7 @@
         "title": "DMC Mourns the Untimely Demise of a Beloved Student",
         "date": "23 December",
         "description": "Devamatha College Family mourns the sudden passing of its son Joseph (1st BCA). He suffered a cardiac arrest while actively participating in a Xmas program at Paisakarry yesterday. We are deeply saddened by the death of this young boy who was active in all his accomplishments not only in college, but in all other areas of his activities too. Its very tragic and we want the family to know that we share their grief . The staff and students of Devamatha College are with the family at this heartbreaking time. Lets pray to God Almighty to grant enough strength to his parents, sisters,family members and other near and dear ones to bear this profound grief.",
-        "image": "public/news-img/news26.jpg",
+        "image": "/news-img/news26.jpg",
         "category": "Announcement",
         "featured": false
     },
@@ -265,7 +265,7 @@
         "title": "Dr. M. J. Mathew, our principal, Emerges Victorious in University Senate Election",
         "date": "03 February",
         "description": "In a momentous victory for democracy and student representation, our principal has emerged triumphant in the recent University Senate election, securing a seat as a voice in the highest decision-making body of the University.",
-        "image": "public/news-img/news27.jpg",
+        "image": "/news-img/news27.jpg",
         "category": "Achievement",
         "featured": false
     }
