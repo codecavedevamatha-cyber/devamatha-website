@@ -15,12 +15,12 @@ const Index = () => (
     <Header />
     <HeroSection />
     <CoursesSection />
+    <AboutSection />
+    <LeadershipSection />
     <NewsEventsSection />
     <PosterSlider />
     <HomeGallery />
     <DepartmentsSection />
-    <AboutSection />
-    <LeadershipSection />
     <FacilitiesSection />
     <CollegeFooter />
   </div>

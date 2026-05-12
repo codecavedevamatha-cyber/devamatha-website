@@ -84,7 +84,7 @@ const NewsEventsSection = () => {
                   <img
                     src={newsData[0]?.image}
                     alt={newsData[0]?.title}
-                    className="w-full h-full object-contain"
+                    className="w-full h-full object-contain bg-gray-50"
                     loading="lazy"
                   />
                 </div>
@@ -131,7 +131,7 @@ const NewsEventsSection = () => {
                   onClick={() => openNewsModal(item)}
                 >
                   {/* News Image */}
-              <div className="relative h-48 overflow-hidden cursor-pointer" onClick={() => openNewsModal(item)}>
+              <div className="relative h-48 overflow-hidden cursor-pointer bg-gray-50" onClick={() => openNewsModal(item)}>
                 <img
                       src={item.image}
                       alt={item.title}
@@ -190,7 +190,7 @@ const NewsEventsSection = () => {
               </button>
 
               {/* News Image */}
-              <div className="relative h-64 md:h-80 overflow-hidden bg-black/5">
+              <div className="relative h-64 md:h-80 overflow-hidden bg-gray-50">
                 <img
                   src={selectedNews.image}
                   alt={selectedNews.title}
