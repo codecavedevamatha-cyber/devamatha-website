@@ -268,5 +268,25 @@
         "image": "/news-img/news27.jpg",
         "category": "Achievement",
         "featured": false
+    },
+    {
+        "id": 28,
+        "type": "news",
+        "title": "New Voices, New Leadership: College Union Takes Charge",
+        "date": "21st Janaury",
+        "description": "The College Union for the academic year was formally inaugurated at the college auditorium in a grand function attended by students, faculty members, and invited guests. Principal, Dr.M J Mathew, administered the oath of office to the newly elected College Union members, officially entrusting them with their responsibilities for the academic year. Kannur University Examination Controller Prof. Dr. Jithesh attended the programme as the chief guest and formally inaugurated the College Union. In the inaugural address, he emphasized the importance of student leadership, discipline, and active participation in academic and cultural activities. The event was further enriched with colourful cultural programmes presented by students, including music and dance performances, which added enthusiasm and vibrancy to the occasion.",
+        "image": "/news-img/news28.jpg",
+        "category": "Inaguratuion",
+        "featured": false
+    },
+    {
+        "id": 29,
+        "type": "news",
+        "title": "Next-Generation Computer Lab Commissioned",
+        "date": "7th February",
+        "description": "The college computer lab has been upgraded with state-of-the-art facilities to enhance the learning experience of students. The renovated lab is equipped with advanced computer systems, high-speed internet connectivity, and modern software applications to support academic and practical training. The upgraded infrastructure aims to provide students with better exposure to emerging technologies and create an efficient digital learning environment. Faculty members and students welcomed the initiative, describing it as a major step toward strengthening technology-based education on the campus.",
+        "image": "/news-img/news29.jpg",
+        "category": "Inaguratuion",
+        "featured": false
     }
 ]
