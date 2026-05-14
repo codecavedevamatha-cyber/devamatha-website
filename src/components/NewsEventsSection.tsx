@@ -80,11 +80,11 @@ const NewsEventsSection = () => {
             >
               <div className="grid lg:grid-cols-2 gap-0">
                 {/* Featured Image */}
-                <div className="relative h-64 lg:h-96">
+                <div className="relative flex items-center justify-center bg-gray-50 min-h-64 lg:min-h-96">
                   <img
                     src={newsData[0]?.image}
                     alt={newsData[0]?.title}
-                    className="w-full h-full object-contain bg-gray-50"
+                    className="max-w-[80%] max-h-[80%] object-contain"
                     loading="lazy"
                   />
                 </div>
