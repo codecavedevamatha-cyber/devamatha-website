@@ -3,6 +3,7 @@ import { ArrowLeft, Sparkles, Target, CheckCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Header from "@/components/Header";
 import CollegeFooter from "@/components/CollegeFooter";
+import Breadcrumb from "@/components/Breadcrumb";
 import { useNavigate } from "react-router-dom";
 
 const ArtsForumPage = () => {
@@ -11,6 +12,7 @@ const ArtsForumPage = () => {
   return (
     <>
       <Header />
+      <Breadcrumb />
       
       {/* Hero Section */}
       <section className="relative min-h-[40vh] flex items-center justify-center pt-8 bg-gradient-to-br from-orange-600 to-red-800 text-white overflow-hidden">

@@ -9,9 +9,12 @@ import PosterSlider from "@/components/PosterSlider";
 import NewsEventsSection from "@/components/NewsEventsSection";
 import FacilitiesSection from "@/components/FacilitiesSection";
 import CollegeFooter from "@/components/CollegeFooter";
+import SchemaOrg from "@/components/SchemaOrg";
 
 const Index = () => (
   <div className="min-h-screen">
+    <SchemaOrg type="Organization" />
+    <SchemaOrg type="WebSite" />
     <Header />
     <HeroSection />
     <CoursesSection />

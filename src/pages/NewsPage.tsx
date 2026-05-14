@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Calendar, Clock, MapPin, ArrowRight, Users, Award, BookOpen, Microscope, Palette, X } from "lucide-react";
 import Header from "@/components/Header";
 import CollegeFooter from "@/components/CollegeFooter";
+import Breadcrumb from "@/components/Breadcrumb";
 import fullNewsData from "@/data/full-news.json";
 
 const iconMap = {
@@ -43,6 +44,7 @@ const NewsPage = () => {
   return (
     <>
       <Header />
+      <Breadcrumb />
       
       {/* Hero Section */}
       <section className="relative min-h-[50vh] flex items-center justify-center bg-gradient-to-br from-primary via-primary/90 to-primary/80 text-primary-foreground overflow-hidden">

@@ -5,6 +5,7 @@ import { ArrowRight, ArrowLeft, Shield, Heart, Users, Briefcase, Star, Target } 
 import { Button } from "@/components/ui/button";
 import Header from "@/components/Header";
 import CollegeFooter from "@/components/CollegeFooter";
+import Breadcrumb from "@/components/Breadcrumb";
 
 // Committees data
 const committees = [
@@ -128,6 +129,7 @@ const CommitteesPage = () => {
   return (
     <>
       <Header />
+      <Breadcrumb />
       
       {/* Hero Section */}
       <section className="relative min-h-[40vh] flex items-center justify-center pt-8 bg-gradient-to-br from-primary via-primary/90 to-primary/80 text-primary-foreground overflow-hidden">

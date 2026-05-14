@@ -1,15 +1,100 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { MapPin, ExternalLink, GraduationCap, Users, Briefcase, Heart, Shield, Phone, Download, Target, Award, CheckCircle, Star, FileText, User, Building, Activity, Sparkles, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Header from "@/components/Header";
 import CollegeFooter from "@/components/CollegeFooter";
+import Breadcrumb from "@/components/Breadcrumb";
 import { useNavigate } from "react-router-dom";
 
 const StudentsCornerPage = () => {
   const navigate = useNavigate();
+  const [formData, setFormData] = useState({
+    fullName: '',
+    mobileNumber: '',
+    emailAddress: '',
+    currentAddress: '',
+    courseProgramme: '',
+    department: '',
+    yearOfAdmission: '',
+    yearOfPassing: '',
+    employmentStatus: '',
+    organizationName: '',
+    jobTitle: '',
+    workLocation: ''
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitMessage, setSubmitMessage] = useState('');
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitMessage('');
+
+    try {
+      const now = new Date();
+      const registrationDate = now.toLocaleDateString('en-GB');
+      const registrationTime = now.toLocaleTimeString('en-GB', { hour12: false });
+
+      const submissionData = {
+        ...formData,
+        registrationDate,
+        registrationTime
+      };
+
+      // Google Apps Script URL for Alumni Registration
+      const scriptURL = 'https://script.google.com/macros/s/AKfycbwdPEUfYIGkIi6n590lONonSKBJ8om4W_e67_3yPC0TEG3_eVoXtiPK92kCQ-bOnj3v/exec';
+      
+      // Use FormData to avoid CORS issues with Google Apps Script
+      const formDataToSend = new FormData();
+      Object.keys(submissionData).forEach(key => {
+        formDataToSend.append(key, submissionData[key as keyof typeof submissionData]);
+      });
+      
+      const response = await fetch(scriptURL, {
+        method: 'POST',
+        body: formDataToSend,
+      });
+
+      const result = await response.json();
+      console.log('Response:', result);
+
+      if (result.status === 'success') {
+        setSubmitMessage('Registration submitted successfully!');
+        setFormData({
+          fullName: '',
+          mobileNumber: '',
+          emailAddress: '',
+          currentAddress: '',
+          courseProgramme: '',
+          department: '',
+          yearOfAdmission: '',
+          yearOfPassing: '',
+          employmentStatus: '',
+          organizationName: '',
+          jobTitle: '',
+          workLocation: ''
+        });
+      } else {
+        setSubmitMessage(`Error: ${result.message || 'Please try again.'}`);
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      setSubmitMessage('Error submitting registration. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <>
       <Header />
+      <Breadcrumb />
       
       {/* Hero Section */}
       <section className="relative min-h-[40vh] flex items-center justify-center pt-8 bg-gradient-to-br from-primary via-primary/90 to-primary/80 text-primary-foreground overflow-hidden">
@@ -705,26 +790,26 @@ const StudentsCornerPage = () => {
                 <FileText className="w-5 h-5 text-purple-600" />
                 Alumni Online Registration
               </h3>
-              <form className="space-y-6">
+              <form onSubmit={handleSubmit} className="space-y-6">
                 {/* Personal Information */}
                 <div>
                   <h4 className="font-semibold text-foreground mb-3 text-sm">Personal Information</h4>
                   <div className="grid md:grid-cols-2 gap-4">
                     <div>
                       <label className="block text-sm font-medium text-foreground mb-2">Full Name *</label>
-                      <input type="text" required className="w-full px-4 py-2 rounded-lg border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-purple-600" placeholder="Enter your full name" />
+                      <input type="text" name="fullName" value={formData.fullName} onChange={handleInputChange} required className="w-full px-4 py-2 rounded-lg border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-purple-600" placeholder="Enter your full name" />
                     </div>
                     <div>
                       <label className="block text-sm font-medium text-foreground mb-2">Mobile Number *</label>
-                      <input type="tel" required className="w-full px-4 py-2 rounded-lg border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-purple-600" placeholder="Enter your mobile number" />
+                      <input type="tel" name="mobileNumber" value={formData.mobileNumber} onChange={handleInputChange} required className="w-full px-4 py-2 rounded-lg border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-purple-600" placeholder="Enter your mobile number" />
                     </div>
                     <div>
                       <label className="block text-sm font-medium text-foreground mb-2">Email Address *</label>
-                      <input type="email" required className="w-full px-4 py-2 rounded-lg border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-purple-600" placeholder="Enter your email address" />
+                      <input type="email" name="emailAddress" value={formData.emailAddress} onChange={handleInputChange} required className="w-full px-4 py-2 rounded-lg border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-purple-600" placeholder="Enter your email address" />
                     </div>
                     <div>
                       <label className="block text-sm font-medium text-foreground mb-2">Current Address *</label>
-                      <textarea required className="w-full px-4 py-2 rounded-lg border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-purple-600" rows={3} placeholder="Enter your current address"></textarea>
+                      <textarea name="currentAddress" value={formData.currentAddress} onChange={handleInputChange} required className="w-full px-4 py-2 rounded-lg border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-purple-600" rows={3} placeholder="Enter your current address"></textarea>
                     </div>
                   </div>
                 </div>
@@ -735,7 +820,7 @@ const StudentsCornerPage = () => {
                   <div className="grid md:grid-cols-2 gap-4">
                     <div>
                       <label className="block text-sm font-medium text-foreground mb-2">Course / Programme *</label>
-                      <select required className="w-full px-4 py-2 rounded-lg border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-purple-600">
+                      <select name="courseProgramme" value={formData.courseProgramme} onChange={handleInputChange} required className="w-full px-4 py-2 rounded-lg border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-purple-600">
                         <option value="">Select Course</option>
                         <option value="bba">BBA</option>
                         <option value="bca">BCA</option>
@@ -748,15 +833,15 @@ const StudentsCornerPage = () => {
                     </div>
                     <div>
                       <label className="block text-sm font-medium text-foreground mb-2">Department *</label>
-                      <input type="text" required className="w-full px-4 py-2 rounded-lg border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-purple-600" placeholder="Enter department" />
+                      <input type="text" name="department" value={formData.department} onChange={handleInputChange} required className="w-full px-4 py-2 rounded-lg border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-purple-600" placeholder="Enter department" />
                     </div>
                     <div>
                       <label className="block text-sm font-medium text-foreground mb-2">Year of Admission *</label>
-                      <input type="number" required min="2000" max="2030" className="w-full px-4 py-2 rounded-lg border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-purple-600" placeholder="Enter year of admission" />
+                      <input type="number" name="yearOfAdmission" value={formData.yearOfAdmission} onChange={handleInputChange} required min="2000" max="2030" className="w-full px-4 py-2 rounded-lg border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-purple-600" placeholder="Enter year of admission" />
                     </div>
                     <div>
                       <label className="block text-sm font-medium text-foreground mb-2">Year of Passing *</label>
-                      <input type="number" required min="2000" max="2030" className="w-full px-4 py-2 rounded-lg border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-purple-600" placeholder="Enter year of passing" />
+                      <input type="number" name="yearOfPassing" value={formData.yearOfPassing} onChange={handleInputChange} required min="2000" max="2030" className="w-full px-4 py-2 rounded-lg border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-purple-600" placeholder="Enter year of passing" />
                     </div>
                   </div>
                 </div>
@@ -767,7 +852,7 @@ const StudentsCornerPage = () => {
                   <div className="grid md:grid-cols-2 gap-4">
                     <div>
                       <label className="block text-sm font-medium text-foreground mb-2">Current Employment Status *</label>
-                      <select required className="w-full px-4 py-2 rounded-lg border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-purple-600">
+                      <select name="employmentStatus" value={formData.employmentStatus} onChange={handleInputChange} required className="w-full px-4 py-2 rounded-lg border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-purple-600">
                         <option value="">Select Status</option>
                         <option value="employed">Employed</option>
                         <option value="self-employed">Self-employed</option>
@@ -777,22 +862,28 @@ const StudentsCornerPage = () => {
                     </div>
                     <div>
                       <label className="block text-sm font-medium text-foreground mb-2">Organization / Company Name</label>
-                      <input type="text" className="w-full px-4 py-2 rounded-lg border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-purple-600" placeholder="Enter organization name" />
+                      <input type="text" name="organizationName" value={formData.organizationName} onChange={handleInputChange} className="w-full px-4 py-2 rounded-lg border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-purple-600" placeholder="Enter organization name" />
                     </div>
                     <div>
                       <label className="block text-sm font-medium text-foreground mb-2">Job Title / Designation</label>
-                      <input type="text" className="w-full px-4 py-2 rounded-lg border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-purple-600" placeholder="Enter job title" />
+                      <input type="text" name="jobTitle" value={formData.jobTitle} onChange={handleInputChange} className="w-full px-4 py-2 rounded-lg border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-purple-600" placeholder="Enter job title" />
                     </div>
                     <div>
                       <label className="block text-sm font-medium text-foreground mb-2">Work Location</label>
-                      <input type="text" className="w-full px-4 py-2 rounded-lg border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-purple-600" placeholder="City, State, Country" />
+                      <input type="text" name="workLocation" value={formData.workLocation} onChange={handleInputChange} className="w-full px-4 py-2 rounded-lg border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-purple-600" placeholder="City, State, Country" />
                     </div>
                   </div>
                 </div>
 
+                {submitMessage && (
+                  <div className={`text-center p-4 rounded-lg ${submitMessage.includes('success') ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'}`}>
+                    {submitMessage}
+                  </div>
+                )}
+
                 <div className="flex justify-center">
-                  <Button type="submit" size="lg" className="bg-purple-600 text-white hover:bg-purple-700 font-semibold">
-                    Submit Registration
+                  <Button type="submit" size="lg" disabled={isSubmitting} className="bg-purple-600 text-white hover:bg-purple-700 font-semibold">
+                    {isSubmitting ? 'Submitting...' : 'Submit Registration'}
                   </Button>
                 </div>
               </form>

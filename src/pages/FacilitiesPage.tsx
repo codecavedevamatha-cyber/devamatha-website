@@ -12,6 +12,7 @@ import {
 } from "lucide-react";
 import Header from "@/components/Header";
 import CollegeFooter from "@/components/CollegeFooter";
+import Breadcrumb from "@/components/Breadcrumb";
 
 const facilities = [
   { icon: Library, name: "Library", description: "The College Library is well-stocked with a wide collection of books, journals, periodicals, and digital resources. It offers a quiet and conducive environment for study and research, catering to the academic requirements of students and faculty." },
@@ -27,6 +28,7 @@ const FacilitiesPage = () => {
   return (
     <>
       <Header />
+      <Breadcrumb />
       
       {/* Hero Section */}
       <section className="relative min-h-[40vh] flex items-center justify-center pt-8 bg-gradient-to-br from-primary via-primary/90 to-primary/80 text-primary-foreground overflow-hidden">

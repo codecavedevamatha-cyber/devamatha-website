@@ -1,0 +1,15 @@
+# Robots.txt for Devamatha Arts & Science College
+# Domain: https://www.devamathacollege.ac.in/
+
+User-agent: *
+Allow: /
+
+# Disallow specific paths if needed
+# Disallow: /private/
+# Disallow: /admin/
+
+# Sitemap location
+Sitemap: https://www.devamathacollege.ac.in/sitemap.xml
+
+# Crawl-delay (optional, adjust based on server capacity)
+# Crawl-delay: 1
