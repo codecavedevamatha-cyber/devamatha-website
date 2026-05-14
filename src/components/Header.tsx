@@ -20,22 +20,11 @@ const Header = () => {
   const navigate = useNavigate();
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState("home");
   const [showScrollTop, setShowScrollTop] = useState(false);
 
   const onScroll = useCallback(() => {
     setScrolled(window.scrollY > 50);
     setShowScrollTop(window.scrollY > 600);
-
-    // Track active section
-    const sections = navLinks.map(l => l.href.slice(1));
-    for (let i = sections.length - 1; i >= 0; i--) {
-      const el = document.getElementById(sections[i]);
-      if (el && el.getBoundingClientRect().top <= 120) {
-        setActiveSection(sections[i]);
-        break;
-      }
-    }
   }, []);
 
   useEffect(() => {
@@ -99,17 +88,9 @@ const Header = () => {
               <Link
                 key={link.href}
                 to={link.href}
-                className={`relative px-2 py-3 text-base font-medium transition-colors rounded-md
-                  ${activeSection === link.href.slice(1) ? "text-primary" : "text-foreground/70 hover:text-primary hover:bg-secondary"}`}
+                className="relative px-2 py-3 text-base font-medium transition-colors rounded-md text-foreground/70 hover:text-primary hover:bg-secondary"
               >
                 {link.label}
-                {activeSection === link.href.slice(1) && (
-                  <motion.div
-                    layoutId="activeNav"
-                    className="absolute bottom-0 left-1/2 -translate-x-1/2 w-5 h-0.5 rounded-full bg-accent"
-                    transition={{ type: "spring", stiffness: 380, damping: 30 }}
-                  />
-                )}
               </Link>
             ))}
           </nav>

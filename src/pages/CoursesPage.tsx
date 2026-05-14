@@ -5,6 +5,7 @@ import { ArrowRight, BookOpen, Users, Award, Clock, CheckCircle, Star, TrendingU
 import { Button } from "@/components/ui/button";
 import Header from "@/components/Header";
 import CollegeFooter from "@/components/CollegeFooter";
+import Breadcrumb from "@/components/Breadcrumb";
 import { courses } from "@/data/courseData";
 
 // Programme data
@@ -159,33 +160,33 @@ const ProgrammeCard = ({ programme, index, navigate }: { programme: typeof progr
       className="bg-card rounded-2xl border border-border shadow-lg overflow-hidden group"
     >
       {/* Header */}
-      <div className={`p-6 bg-gradient-to-r from-${programme.color}/10 to-${programme.color}/5 border-b border-border`}>
-        <div className="flex items-start justify-between mb-4">
-          <div className="w-12 h-12 bg-${programme.color}/20 rounded-xl flex items-center justify-center">
-            <programme.icon className={`w-6 h-6 text-${programme.color}`} />
+      <div className={`p-4 sm:p-6 bg-gradient-to-r from-${programme.color}/10 to-${programme.color}/5 border-b border-border`}>
+        <div className="flex items-start justify-between mb-3 sm:mb-4">
+          <div className="w-10 h-10 sm:w-12 sm:h-12 bg-${programme.color}/20 rounded-xl flex items-center justify-center">
+            <programme.icon className={`w-5 h-5 sm:w-6 sm:h-6 text-${programme.color}`} />
           </div>
           <div className="text-right">
-            <span className="text-xs font-semibold text-${programme.color} uppercase tracking-wide">
+            <span className="text-[10px] sm:text-xs font-semibold text-${programme.color} uppercase tracking-wide">
               {programme.category}
             </span>
-            <p className="text-sm text-muted-foreground">{programme.duration}</p>
+            <p className="text-xs sm:text-sm text-muted-foreground">{programme.duration}</p>
           </div>
         </div>
         
-        <h3 className="font-heading text-xl font-bold text-foreground mb-2 group-hover:text-${programme.color} transition-colors" dangerouslySetInnerHTML={{ __html: programme.title }}>
+        <h3 className="font-heading text-lg sm:text-xl font-bold text-foreground mb-2 group-hover:text-${programme.color} transition-colors" dangerouslySetInnerHTML={{ __html: programme.title }}>
         </h3>
         
-        <p className="text-gray-700 text-sm line-clamp-3">
+        <p className="text-gray-700 text-xs sm:text-sm line-clamp-3">
           {truncateDescription(programme.overview)}
         </p>
       </div>
 
       {/* Footer */}
-      <div className="p-4 bg-background border-t border-border">
+      <div className="p-3 sm:p-4 bg-background border-t border-border">
         <div className="flex items-center justify-start">
           <Button
             size="sm"
-            className="bg-accent text-accent-foreground hover:bg-accent/90"
+            className="bg-accent text-accent-foreground hover:bg-accent/90 text-xs sm:text-sm"
             onClick={(e) => {
               e.stopPropagation();
               navigate(`/course/${programme.id}`);
@@ -213,9 +214,10 @@ const CoursesPage = () => {
   return (
     <>
       <Header />
+      <Breadcrumb />
       
       {/* Hero Section */}
-      <section className="relative min-h-[40vh] flex items-center justify-center bg-gradient-to-br from-primary via-primary/90 to-primary/80 text-primary-foreground overflow-hidden">
+      <section className="relative min-h-[35vh] sm:min-h-[40vh] flex items-center justify-center bg-gradient-to-br from-primary via-primary/90 to-primary/80 text-primary-foreground overflow-hidden">
         <div className="absolute inset-0 bg-black/20"></div>
         <div className="absolute inset-0">
           <div className="w-full h-full bg-gradient-to-t from-black/30 via-transparent to-transparent"></div>
@@ -226,11 +228,11 @@ const CoursesPage = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="mb-4"
+            className="mb-3 sm:mb-4"
           >
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary-foreground/20 border border-primary-foreground/30">
-              <BookOpen className="w-4 h-4" />
-              <span className="text-sm font-medium">Academic Programmes</span>
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full bg-primary-foreground/20 border border-primary-foreground/30">
+              <BookOpen className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+              <span className="text-xs sm:text-sm font-medium">Academic Programmes</span>
             </div>
           </motion.div>
 
@@ -238,7 +240,7 @@ const CoursesPage = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="font-heading text-4xl md:text-6xl font-bold mb-4"
+            className="font-heading text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-bold mb-4"
           >
             Programmes
           </motion.h1>
@@ -253,26 +255,26 @@ const CoursesPage = () => {
       </section>
 
       {/* Programmes Overview */}
-      <section className="py-8 bg-background">
+      <section className="py-6 sm:py-8 bg-background">
         <div className="container max-w-7xl mx-auto px-2 sm:px-3 md:px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center mb-8"
+            className="text-center mb-6 sm:mb-8"
           >
-            <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground mb-4">
+            <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl font-bold text-foreground mb-3 sm:mb-4">
               Choose Your Programme
             </h2>
-            <div className="w-20 h-1 bg-accent rounded-full mx-auto"></div>
+            <div className="w-16 sm:w-20 h-1 bg-accent rounded-full mx-auto"></div>
           </motion.div>
 
           {/* Tabs */}
-          <div className="flex justify-center items-center gap-4 mb-12">
+          <div className="flex flex-col sm:flex-row justify-center items-center gap-3 sm:gap-4 mb-8 sm:mb-12">
             <div className="inline-flex p-1 bg-card rounded-xl border border-border shadow-lg">
               <button
                 onClick={() => setActiveTab("all")}
-                className={`px-8 py-3 rounded-lg font-semibold transition-all duration-300 ${
+                className={`px-4 py-2 sm:px-6 sm:py-3 rounded-lg font-semibold transition-all duration-300 text-sm sm:text-base ${
                   activeTab === "all"
                     ? "bg-accent text-accent-foreground shadow-lg"
                     : "text-muted-foreground hover:text-foreground"
@@ -282,7 +284,7 @@ const CoursesPage = () => {
               </button>
               <button
                 onClick={() => setActiveTab("ug")}
-                className={`px-8 py-3 rounded-lg font-semibold transition-all duration-300 ${
+                className={`px-4 py-2 sm:px-6 sm:py-3 rounded-lg font-semibold transition-all duration-300 text-sm sm:text-base ${
                   activeTab === "ug"
                     ? "bg-accent text-accent-foreground shadow-lg"
                     : "text-muted-foreground hover:text-foreground"
@@ -292,7 +294,7 @@ const CoursesPage = () => {
               </button>
               <button
                 onClick={() => setActiveTab("pg")}
-                className={`px-8 py-3 rounded-lg font-semibold transition-all duration-300 ${
+                className={`px-4 py-2 sm:px-6 sm:py-3 rounded-lg font-semibold transition-all duration-300 text-sm sm:text-base ${
                   activeTab === "pg"
                     ? "bg-accent text-accent-foreground shadow-lg"
                     : "text-muted-foreground hover:text-foreground"
@@ -302,7 +304,7 @@ const CoursesPage = () => {
               </button>
             </div>
             <Button
-              className="bg-accent text-accent-foreground hover:bg-accent/90"
+              className="bg-accent text-accent-foreground hover:bg-accent/90 text-sm sm:text-base"
               onClick={() => {
                 navigate("/admission");
                 setTimeout(() => {
@@ -318,7 +320,7 @@ const CoursesPage = () => {
           </div>
 
           {/* Programme Cards */}
-          <div className="space-y-8 mb-12">
+          <div className="space-y-6 sm:space-y-8 mb-8 sm:mb-12">
             <AnimatePresence mode="wait">
               <motion.div
                 key={activeTab}
@@ -327,7 +329,7 @@ const CoursesPage = () => {
                 exit={{ opacity: 0, y: -20 }}
                 transition={{ duration: 0.3 }}
               >
-                <div className="grid md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-8 align-start justify-items-center max-w-7xl mx-auto px-2 sm:px-3 md:px-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 align-start justify-items-center max-w-7xl mx-auto px-2 sm:px-3 md:px-4">
                   {filteredProgrammes.map((programme, index) => (
                     <ProgrammeCard key={programme.id} programme={programme} index={index} navigate={navigate} />
                   ))}

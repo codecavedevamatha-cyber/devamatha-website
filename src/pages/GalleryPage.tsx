@@ -4,6 +4,7 @@ import { X, Play, Camera, Video, ChevronLeft, ChevronRight, Maximize2 } from "lu
 import { Button } from "@/components/ui/button";
 import Header from "@/components/Header";
 import CollegeFooter from "@/components/CollegeFooter";
+import Breadcrumb from "@/components/Breadcrumb";
 import galleryPhotosData from "@/data/gallery-photos.json";
 import galleryVideosData from "@/data/gallery-videos.json";
 
@@ -124,19 +125,20 @@ const GalleryPage = () => {
   return (
     <>
       <Header />
+      <Breadcrumb />
 
-      <section className="relative min-h-[40vh] flex items-center justify-center bg-gradient-to-br from-primary via-primary/90 to-primary/80 text-primary-foreground overflow-hidden">
+      <section className="relative min-h-[35vh] sm:min-h-[40vh] flex items-center justify-center bg-gradient-to-br from-primary via-primary/90 to-primary/80 text-primary-foreground overflow-hidden">
         <div className="absolute inset-0 bg-black/20"></div>
         <div className="absolute inset-0">
           <div className="w-full h-full bg-gradient-to-t from-black/30 via-transparent to-transparent"></div>
         </div>
 
-        <div className="relative z-10 container max-w-7xl mx-auto px-4 text-center">
+        <div className="relative z-10 container max-w-7xl mx-auto px-2 sm:px-3 md:px-4 text-center">
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="font-heading text-4xl md:text-6xl font-bold mb-6"
+            className="font-heading text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-bold mb-4 sm:mb-6"
           >
             Gallery
           </motion.h1>
@@ -149,13 +151,13 @@ const GalleryPage = () => {
         </div>
       </section>
 
-      <section className="section-padding bg-background">
+      <section className="section-padding py-6 sm:py-8 bg-background">
         <div className="container max-w-7xl mx-auto px-2 sm:px-3 md:px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="flex flex-wrap justify-center gap-3 mb-8"
+            className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-6 sm:mb-8"
           >
             {[
               { value: "photos", label: "Photos", icon: Camera },
@@ -165,9 +167,9 @@ const GalleryPage = () => {
                 key={filterOption.value}
                 variant={filter === filterOption.value ? "default" : "outline"}
                 onClick={() => setFilter(filterOption.value as "photos" | "videos")}
-                className="flex items-center gap-2 px-4 py-2"
+                className="flex items-center gap-2 px-3 py-1.5 sm:px-4 sm:py-2 text-xs sm:text-sm"
               >
-                <filterOption.icon className="w-4 h-4" />
+                <filterOption.icon className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                 {filterOption.label}
               </Button>
             ))}

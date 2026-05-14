@@ -78,35 +78,35 @@ const NewsEventsSection = () => {
               className="relative bg-gradient-to-r from-accent/10 via-primary/5 to-accent/10 rounded-3xl overflow-hidden border border-accent/20 shadow-2xl cursor-pointer"
               onClick={() => openNewsModal(newsData[0])}
             >
-              <div className="grid lg:grid-cols-2 gap-0">
+              <div className="grid lg:grid-cols-2 gap-0 min-h-96">
                 {/* Featured Image */}
-                <div className="relative h-64 lg:h-96">
+                <div className="relative h-48 sm:h-64 lg:h-auto min-h-48 sm:min-h-64 lg:min-h-96 flex items-center justify-center bg-gray-50 p-4 sm:p-6 lg:p-8">
                   <img
                     src={newsData[0]?.image}
                     alt={newsData[0]?.title}
-                    className="w-full h-full object-contain bg-gray-50"
+                    className="w-auto h-auto max-h-full max-w-full object-contain"
                     loading="lazy"
                   />
                 </div>
 
                 {/* Featured Content */}
-                <div className="p-8 lg:p-12 flex flex-col justify-center">
+                <div className="p-4 sm:p-6 lg:p-12 flex flex-col justify-center">
                   <div className="flex items-center gap-3 mb-4">
-                    <Calendar className="w-5 h-5 text-accent" />
-                    <span className="text-accent font-semibold">{newsData[0]?.date}</span>
+                    <Calendar className="w-4 h-4 sm:w-5 sm:h-5 text-accent" />
+                    <span className="text-accent font-semibold text-sm sm:text-base">{newsData[0]?.date}</span>
                   </div>
 
-                  <h3 className="text-2xl lg:text-3xl font-bold text-foreground mb-4">
+                  <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-foreground mb-4">
                     {newsData[0]?.title}
                   </h3>
 
-                  <p className="text-muted-foreground text-lg leading-relaxed mb-6">
+                  <p className="text-muted-foreground text-sm sm:text-base lg:text-lg leading-relaxed mb-6">
                     {newsData[0]?.description}
                   </p>
 
                   <a
                     href="/news"
-                    className="inline-flex items-center gap-3 px-6 py-3 bg-accent text-accent-foreground rounded-xl font-semibold hover:bg-accent/90 transition-colors duration-300 w-fit whitespace-nowrap"
+                    className="inline-flex items-center gap-3 px-4 py-2 sm:px-6 sm:py-3 bg-accent text-accent-foreground rounded-xl font-semibold hover:bg-accent/90 transition-colors duration-300 w-fit whitespace-nowrap text-sm sm:text-base"
                   >
                     View all news & events
                     <ArrowRight className="w-4 h-4" />
@@ -121,7 +121,7 @@ const NewsEventsSection = () => {
           )}
 
           {/* Regular News & Events Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
             {newsData.slice(1, 4).map((item, index) => {
               const Icon = item.icon;
               return (
@@ -131,18 +131,18 @@ const NewsEventsSection = () => {
                   onClick={() => openNewsModal(item)}
                 >
                   {/* News Image */}
-              <div className="relative h-48 overflow-hidden cursor-pointer bg-gray-50" onClick={() => openNewsModal(item)}>
+              <div className="relative h-40 sm:h-48 flex items-center justify-center bg-gray-50 overflow-hidden cursor-pointer" onClick={() => openNewsModal(item)}>
                 <img
                       src={item.image}
                       alt={item.title}
-                      className="w-full h-full object-contain hover:scale-105 transition-transform duration-300"
+                      className="w-full h-full object-contain max-h-full hover:scale-105 transition-transform duration-300"
                       loading="lazy"
                     />
                   </div>
 
                   {/* Content */}
-                  <div className="p-6">
-                    <h3 className="text-xl font-bold text-foreground mb-3 hover:text-accent transition-colors duration-300">
+                  <div className="p-4 sm:p-6">
+                    <h3 className="text-lg sm:text-xl font-bold text-foreground mb-3 hover:text-accent transition-colors duration-300">
                       {item.title}
                     </h3>
 
@@ -190,11 +190,11 @@ const NewsEventsSection = () => {
               </button>
 
               {/* News Image */}
-              <div className="relative h-64 md:h-80 overflow-hidden bg-gray-50">
+              <div className="relative h-64 md:h-80 flex items-center justify-center bg-gray-50 overflow-hidden">
                 <img
                   src={selectedNews.image}
                   alt={selectedNews.title}
-                  className="w-full h-full object-contain cursor-move"
+                  className="w-full h-full object-contain max-h-full cursor-move"
                   style={{ cursor: 'move' }}
                   onClick={() => window.open(selectedNews.image, '_blank')}
                   draggable={false}

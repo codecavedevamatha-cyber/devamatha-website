@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import { BookOpen, Languages, Briefcase, Monitor, TrendingUp, Trophy, Users, User, GraduationCap, Award, ArrowRight } from "lucide-react";
 import Header from "@/components/Header";
 import CollegeFooter from "@/components/CollegeFooter";
+import Breadcrumb from "@/components/Breadcrumb";
 import { useNavigate } from "react-router-dom";
 
 const DepartmentsPage = () => {
@@ -195,20 +196,21 @@ const DepartmentsPage = () => {
   return (
     <>
       <Header />
+      <Breadcrumb />
       
       {/* Hero Section */}
-      <section className="relative min-h-[40vh] flex items-center justify-center bg-gradient-to-br from-primary via-primary/90 to-primary/80 text-primary-foreground overflow-hidden">
+      <section className="relative min-h-[35vh] sm:min-h-[40vh] flex items-center justify-center bg-gradient-to-br from-primary via-primary/90 to-primary/80 text-primary-foreground overflow-hidden">
         <div className="absolute inset-0 bg-black/20"></div>
         <div className="absolute inset-0">
           <div className="w-full h-full bg-gradient-to-t from-black/30 via-transparent to-transparent"></div>
         </div>
         
-        <div className="relative z-10 container max-w-7xl mx-auto px-4 text-center">
+        <div className="relative z-10 container max-w-7xl mx-auto px-2 sm:px-3 md:px-4 text-center">
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="font-heading text-4xl md:text-6xl font-bold text-center"
+            className="font-heading text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-bold text-center"
           >
             Departments
           </motion.h1>
@@ -223,11 +225,11 @@ const DepartmentsPage = () => {
       </section>
 
       {/* Main Content */}
-      <section className="py-8 bg-background">
-        <div className="container max-w-7xl mx-auto px-4">
+      <section className="py-6 sm:py-8 bg-background">
+        <div className="container max-w-7xl mx-auto px-2 sm:px-3 md:px-4">
           
           {/* Department Grid */}
-          <div className="grid md:grid-cols-2 gap-8 mb-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 mb-6 sm:mb-8">
             {departments.map((dept, index) => {
               const colors = colorClasses[dept.color as keyof typeof colorClasses];
               return (
@@ -237,20 +239,20 @@ const DepartmentsPage = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className={`bg-gradient-to-br ${colors.bg} rounded-3xl p-8 border ${colors.border} shadow-lg hover:shadow-xl transition-all`}
+                  className={`bg-gradient-to-br ${colors.bg} rounded-2xl sm:rounded-3xl p-4 sm:p-6 lg:p-8 border ${colors.border} shadow-lg hover:shadow-xl transition-all`}
                 >
-                  <div className="flex items-center gap-4 mb-6">
-                    <div className={`w-16 h-16 rounded-full ${colors.icon} flex items-center justify-center flex-shrink-0`}>
-                      <dept.icon className="w-8 h-8 text-white" />
+                  <div className="flex items-center gap-3 sm:gap-4 mb-4 sm:mb-6">
+                    <div className={`w-12 h-12 sm:w-16 sm:h-16 rounded-full ${colors.icon} flex items-center justify-center flex-shrink-0`}>
+                      <dept.icon className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
                     </div>
-                    <h3 className="font-heading text-xl font-bold text-foreground leading-tight">{dept.name}</h3>
+                    <h3 className="font-heading text-base sm:text-lg lg:text-xl font-bold text-foreground leading-tight">{dept.name}</h3>
                   </div>
-                  <p className="text-base text-muted-foreground mb-6 line-clamp-3">{truncateDescription(dept.description)}</p>
+                  <p className="text-xs sm:text-sm lg:text-base text-muted-foreground mb-4 sm:mb-6 line-clamp-3">{truncateDescription(dept.description)}</p>
                   <button
                     onClick={() => navigate(`/departments/${dept.id}`)}
-                    className={`flex items-center gap-2 px-6 py-3 rounded-xl ${colors.icon} text-white font-semibold hover:opacity-90 transition-opacity`}
+                    className={`flex items-center gap-2 px-4 py-2 sm:px-6 sm:py-3 rounded-xl ${colors.icon} text-white font-semibold hover:opacity-90 transition-opacity text-xs sm:text-sm`}
                   >
-                    Know More <ArrowRight className="w-5 h-5" />
+                    Know More <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
                   </button>
                 </motion.div>
               );
