@@ -167,11 +167,11 @@ const NewsEventsSection = () => {
               >
                 <div className="grid lg:grid-cols-2 gap-0">
                   {/* Image */}
-                  <div className="relative flex items-center justify-center bg-gray-50 min-h-64 lg:min-h-96">
+                  <div className="relative flex items-center justify-center bg-gray-50 min-h-64 lg:min-h-96 p-8 lg:p-12">
                     <img
                       src={newsData[0]?.image}
                       alt={newsData[0]?.title}
-                      className="max-w-[80%] max-h-[80%] object-contain"
+                      className="max-w-full max-h-full object-contain rounded-xl"
                       loading="lazy"
                     />
                   </div>
@@ -223,15 +223,14 @@ const NewsEventsSection = () => {
                     onClick={() => openNewsModal(item)}
                   >
                     {/* Image */}
-                    <div className="relative h-48 overflow-hidden cursor-pointer bg-gray-50">
+                    <div className="relative h-48 overflow-hidden cursor-pointer bg-gray-50 p-4 flex items-center justify-center">
                       <img
                         src={item.image}
                         alt={item.title}
-                        className="w-full h-full object-contain hover:scale-105 transition-transform duration-300"
+                        className="max-w-full max-h-full object-contain hover:scale-105 transition-transform duration-300 rounded-lg"
                         loading="lazy"
                       />
                     </div>
-
                     {/* Content */}
                     <div className="p-6">
                       <h3 className="text-xl font-bold text-foreground mb-3 hover:text-accent transition-colors duration-300 line-clamp-2">
@@ -298,11 +297,11 @@ const NewsEventsSection = () => {
               </button>
 
               {/* Image */}
-              <div className="relative h-64 md:h-80 overflow-hidden bg-gray-50">
+              <div className="relative h-64 md:h-80 overflow-hidden bg-gray-50 p-6 flex items-center justify-center">
                 <img
                   src={selectedNews.image}
                   alt={selectedNews.title}
-                  className="w-full h-full object-contain"
+                  className="max-w-full max-h-full object-contain rounded-xl"
                   draggable={false}
                 />
               </div>

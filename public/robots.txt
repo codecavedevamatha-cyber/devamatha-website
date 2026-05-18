@@ -1,0 +1,8 @@
+# Robots.txt for Devamatha Arts & Science College
+# https://www.devamathacollege.ac.in/
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://www.devamathacollege.ac.in/sitemap.xml
