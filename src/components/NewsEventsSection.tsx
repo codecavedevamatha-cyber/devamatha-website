@@ -212,45 +212,45 @@ const NewsEventsSection = () => {
             )}
 
             {/* Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {newsData.slice(1, 4).map((item, index) => {
-                const Icon = item.icon;
-
-                return (
-                  <article
-                    key={item._id}
-                    className="bg-card/50 hover:bg-card/80 backdrop-blur-sm border border-border/60 hover:border-accent/40 rounded-2xl overflow-hidden transition-all duration-300 hover:shadow-xl cursor-pointer"
-                    onClick={() => openNewsModal(item)}
-                  >
-                    {/* Image */}
-                    <div className="relative h-48 overflow-hidden cursor-pointer bg-gray-50 p-4 flex items-center justify-center">
-                      <img
-                        src={item.image}
-                        alt={item.title}
-                        className="max-w-full max-h-full object-contain hover:scale-105 transition-transform duration-300 rounded-lg"
-                        loading="lazy"
-                      />
-                    </div>
-                    {/* Content */}
-                    <div className="p-6">
-                      <h3 className="text-xl font-bold text-foreground mb-3 hover:text-accent transition-colors duration-300 line-clamp-2">
-                        {item.title}
-                      </h3>
-
-                      <p className="text-muted-foreground text-sm leading-relaxed mb-4 line-clamp-3">
-                        {item.description}
-                      </p>
-
-                      {/* Date */}
-                      <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                        <Calendar className="w-4 h-4" />
-
-                        <span>{formatDate(item.date)}</span>
+            <div className="pt-4">
+              <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+                {newsData.slice(1, 4).map((item) => {
+                  return (
+                    <article
+                      key={item._id}
+                      className="bg-card/50 hover:bg-card/80 backdrop-blur-sm border border-border/60 hover:border-accent/40 rounded-2xl overflow-hidden transition-all duration-300 hover:shadow-xl cursor-pointer"
+                      onClick={() => openNewsModal(item)}
+                    >
+                      {/* Image */}
+                      <div className="relative h-48 overflow-hidden cursor-pointer bg-gray-50 p-4 flex items-center justify-center">
+                        <img
+                          src={item.image}
+                          alt={item.title}
+                          className="max-w-full max-h-full object-contain hover:scale-105 transition-transform duration-300 rounded-lg"
+                          loading="lazy"
+                        />
                       </div>
-                    </div>
-                  </article>
-                );
-              })}
+                      {/* Content */}
+                      <div className="p-6">
+                        <h3 className="text-xl font-bold text-foreground mb-3 hover:text-accent transition-colors duration-300 line-clamp-2">
+                          {item.title}
+                        </h3>
+
+                        <p className="text-muted-foreground text-sm leading-relaxed mb-4 line-clamp-3">
+                          {item.description}
+                        </p>
+
+                        {/* Date */}
+                        <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                          <Calendar className="w-4 h-4" />
+
+                          <span>{formatDate(item.date)}</span>
+                        </div>
+                      </div>
+                    </article>
+                  );
+                })}
+              </div>
             </div>
           </div>
         </div>

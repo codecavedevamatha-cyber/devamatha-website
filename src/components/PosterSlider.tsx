@@ -15,6 +15,8 @@ const PosterSlider = () => {
 
   const [posterUrls, setPosterUrls] = useState<string[]>([]);
 
+  const [hasEnteredView, setHasEnteredView] = useState(false);
+
   // FETCH POSTERS FROM SANITY
   useEffect(() => {
     const fetchPosters = async () => {
@@ -27,7 +29,6 @@ const PosterSlider = () => {
         `);
 
         const urls = data.map((item: PosterType) => urlFor(item.image).url());
-
         setPosterUrls(urls);
       } catch (error) {
         console.error("Error fetching posters:", error);
@@ -39,14 +40,14 @@ const PosterSlider = () => {
 
   // AUTO ROTATION
   useEffect(() => {
-    if (posterUrls.length === 0) return;
+    if (posterUrls.length === 0 || !hasEnteredView) return;
 
     const interval = setInterval(() => {
       setCurrentRotation((prev) => (prev + 1) % posterUrls.length);
     }, 3000);
 
     return () => clearInterval(interval);
-  }, [posterUrls]);
+  }, [hasEnteredView, posterUrls]);
 
   // EMPTY STATE
   if (posterUrls.length === 0) {
@@ -62,7 +63,14 @@ const PosterSlider = () => {
   }
 
   return (
-    <section className="w-full bg-background py-8">
+    <motion.section
+      className="w-full bg-background py-8"
+      onViewportEnter={() => setHasEnteredView(true)}
+      viewport={{
+        once: true,
+        amount: 0.2,
+      }}
+    >
       <div className="container px-4">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
           {[0, 1, 2, 3].map((boxIndex) => (
@@ -110,7 +118,7 @@ const PosterSlider = () => {
           ))}
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 

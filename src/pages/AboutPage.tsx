@@ -12,10 +12,11 @@ const AboutPage = () => {
 
   const formerManagers = [
     "Rev. Fr. John Mullakkara",
-    "Rev. Fr. Antony Purayidam", 
+    "Rev. Fr. Antony Purayidam",
     "Rev. Fr. Mani Attel",
     "Rev. Dr. Thomas Melvettath",
-    "Rev. Dr. Jose Vettickal"
+    "Rev. Dr. Jose Vettickal",
+    "Rev. Fr. Sebastian Palakuzhy",
   ];
 
   const formerPrincipals = [
@@ -347,7 +348,7 @@ const AboutPage = () => {
                   {/* Bottom Content Area */}
                   <div className="absolute bottom-0 left-0 right-0 p-8 z-20 flex flex-col items-center text-center transform translate-y-6 group-hover:translate-y-0 transition-transform duration:700 ease-[cubic-bezier(0.25,1,0.5,1)]">
                     <h3 className="text-xl md:text-2xl font-display font-bold text-white mb-2">{member.name}</h3>
-                    <p className="text-sm md:text-base text-white/80 font-medium">{member.role}</p>
+                    {/* <p className="text-sm md:text-base text-white/80 font-medium">{member.role}</p> */}
                   </div>
                 </div>
               </motion.div>
