@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, ArrowLeft, Shield, Heart, Users, Briefcase, Star, Target } from "lucide-react";
+import { Helmet } from "react-helmet-async";
 import { Button } from "@/components/ui/button";
 import Header from "@/components/Header";
 import CollegeFooter from "@/components/CollegeFooter";
@@ -128,6 +129,13 @@ const CommitteesPage = () => {
 
   return (
     <>
+      <Helmet>
+        <title>Committees | Devamatha College</title>
+        <meta
+          name="description"
+          content="Committee and cell details for Devamatha Arts & Science College Paisakary."
+        />
+      </Helmet>
       <Header />
       <Breadcrumb />
       

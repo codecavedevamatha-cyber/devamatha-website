@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { ArrowLeft, Star, Users, Heart } from "lucide-react";
+import { Helmet } from "react-helmet-async";
 import { Button } from "@/components/ui/button";
 import Header from "@/components/Header";
 import CollegeFooter from "@/components/CollegeFooter";
@@ -19,6 +20,13 @@ const StudentsWelfarePage = () => {
 
   return (
     <>
+      <Helmet>
+        <title>Students' Welfare Cell | Devamatha College</title>
+        <meta
+          name="description"
+          content="Students' Welfare Cell details at Devamatha Arts & Science College Paisakary."
+        />
+      </Helmet>
       <Header />
       <Breadcrumb />
       

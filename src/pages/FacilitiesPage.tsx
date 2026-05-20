@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Helmet } from "react-helmet-async";
 import {
   Library,
   Computer,
@@ -27,6 +28,13 @@ const facilities = [
 const FacilitiesPage = () => {
   return (
     <>
+      <Helmet>
+        <title>Facilities | Devamatha College</title>
+        <meta
+          name="description"
+          content="Campus facilities at Devamatha Arts & Science College Paisakary."
+        />
+      </Helmet>
       <Header />
       <Breadcrumb />
       

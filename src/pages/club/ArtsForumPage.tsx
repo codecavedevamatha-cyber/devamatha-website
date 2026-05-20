@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { ArrowLeft, Sparkles, Target, CheckCircle } from "lucide-react";
+import { Helmet } from "react-helmet-async";
 import { Button } from "@/components/ui/button";
 import Header from "@/components/Header";
 import CollegeFooter from "@/components/CollegeFooter";
@@ -11,6 +12,13 @@ const ArtsForumPage = () => {
 
   return (
     <>
+      <Helmet>
+        <title>Arts Forum | Devamatha College</title>
+        <meta
+          name="description"
+          content="Arts Forum details at Devamatha Arts & Science College Paisakary."
+        />
+      </Helmet>
       <Header />
       <Breadcrumb />
       

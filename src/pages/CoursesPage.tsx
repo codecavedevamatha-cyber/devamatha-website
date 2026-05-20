@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, BookOpen, Users, Award, Clock, CheckCircle, Star, TrendingUp, Target, Briefcase } from "lucide-react";
+import { Helmet } from "react-helmet-async";
 import { Button } from "@/components/ui/button";
 import Header from "@/components/Header";
 import CollegeFooter from "@/components/CollegeFooter";
@@ -213,6 +214,13 @@ const CoursesPage = () => {
 
   return (
     <>
+      <Helmet>
+        <title>Programmes | Devamatha College</title>
+        <meta
+          name="description"
+          content="Explore undergraduate and postgraduate programmes at Devamatha Arts & Science College Paisakary."
+        />
+      </Helmet>
       <Header />
       <Breadcrumb />
       

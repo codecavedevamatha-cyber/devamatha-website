@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { ArrowLeft, FileText, Target, CheckCircle } from "lucide-react";
+import { Helmet } from "react-helmet-async";
 import { Button } from "@/components/ui/button";
 import Header from "@/components/Header";
 import CollegeFooter from "@/components/CollegeFooter";
@@ -11,6 +12,13 @@ const LiteraryClubPage = () => {
 
   return (
     <>
+      <Helmet>
+        <title>Literary Club | Devamatha College</title>
+        <meta
+          name="description"
+          content="Literary Club details at Devamatha Arts & Science College Paisakary."
+        />
+      </Helmet>
       <Header />
       <Breadcrumb />
       

@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { BookOpen, Languages, Briefcase, Monitor, TrendingUp, Trophy, Users, User, GraduationCap, Award, ArrowRight, ArrowLeft } from "lucide-react";
+import { Helmet } from "react-helmet-async";
 import Header from "@/components/Header";
 import CollegeFooter from "@/components/CollegeFooter";
 import { Link, useParams, useNavigate } from "react-router-dom";
@@ -169,19 +170,45 @@ const DepartmentDetailPage = () => {
   const navigate = useNavigate();
 
   if (!departmentId) {
-    return <div>Department not found</div>;
+    return (
+      <>
+        <Helmet>
+          <title>Department Not Found | Devamatha College</title>
+          <meta
+            name="description"
+            content="The requested department could not be found at Devamatha Arts & Science College Paisakary."
+          />
+        </Helmet>
+        <div>Department not found</div>
+      </>
+    );
   }
 
   const department = departmentData[departmentId];
 
   if (!department) {
-    return <div>Department not found</div>;
+    return (
+      <>
+        <Helmet>
+          <title>Department Not Found | Devamatha College</title>
+          <meta
+            name="description"
+            content="The requested department could not be found at Devamatha Arts & Science College Paisakary."
+          />
+        </Helmet>
+        <div>Department not found</div>
+      </>
+    );
   }
 
   const colors = colorClasses[department.color as keyof typeof colorClasses];
 
   return (
     <>
+      <Helmet>
+        <title>{`${department.name} | Devamatha College`}</title>
+        <meta name="description" content={department.fullDescription[0]} />
+      </Helmet>
       <Header />
       
       {/* Hero Section */}

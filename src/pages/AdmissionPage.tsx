@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, Download, Phone, Upload, FileText, User, GraduationCap, MapPin, ClipboardCheck, Shield, ExternalLink, BookOpen, Info, CheckCircle, AlertCircle } from "lucide-react";
+import { Helmet } from "react-helmet-async";
 import { Button } from "@/components/ui/button";
 import Header from "@/components/Header";
 import CollegeFooter from "@/components/CollegeFooter";
@@ -66,6 +67,13 @@ const AdmissionPage = () => {
 
   return (
     <>
+      <Helmet>
+        <title>Admission | Devamatha College</title>
+        <meta
+          name="description"
+          content="Admission details for Devamatha Arts & Science College Paisakary."
+        />
+      </Helmet>
       <Header />
       <Breadcrumb />
       

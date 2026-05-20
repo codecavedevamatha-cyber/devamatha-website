@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, Users, Award, BookOpen, Calendar, MapPin, Phone, Mail, GraduationCap, Heart, Target, Eye } from "lucide-react";
+import { Helmet } from "react-helmet-async";
 import { Button } from "@/components/ui/button";
 import Header from "@/components/Header";
 import CollegeFooter from "@/components/CollegeFooter";
-import Breadcrumb from "@/components/Breadcrumb";
 import { getPersonImageSrc } from "@/data/personImages";
 
 const AboutPage = () => {
@@ -12,11 +12,11 @@ const AboutPage = () => {
 
   const formerManagers = [
     "Rev. Fr. John Mullakkara",
-    "Rev. Fr. Antony Purayidathil", 
+    "Rev. Fr. Antony Purayidam",
     "Rev. Fr. Mani Attel",
     "Rev. Dr. Thomas Melvettath",
     "Rev. Dr. Jose Vettickal",
-    "Rev. Fr. Sebastian Palakuzhy"
+    "Rev. Fr. Sebastian Palakuzhy",
   ];
 
   const formerPrincipals = [
@@ -39,11 +39,17 @@ const AboutPage = () => {
 
   return (
     <>
+      <Helmet>
+        <title>About | Devamatha College</title>
+        <meta
+          name="description"
+          content="About Devamatha Arts & Science College Paisakary, its history, vision, mission, and leadership."
+        />
+      </Helmet>
       <Header />
-      <Breadcrumb />
       
       {/* Hero Section */}
-      <section className="relative min-h-[35vh] sm:min-h-[40vh] flex items-center justify-center bg-gradient-to-br from-primary via-primary/90 to-primary/80 text-primary-foreground overflow-hidden">
+      <section className="relative min-h-[40vh] flex items-center justify-center bg-gradient-to-br from-primary via-primary/90 to-primary/80 text-primary-foreground overflow-hidden">
         <div className="absolute inset-0 bg-black/20"></div>
         <div className="absolute inset-0">
           <div className="w-full h-full bg-gradient-to-t from-black/30 via-transparent to-transparent"></div>
@@ -54,11 +60,11 @@ const AboutPage = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="mb-3 sm:mb-4"
+            className="mb-4"
           >
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full bg-primary-foreground/20 border border-primary-foreground/30">
-              <MapPin className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
-              <span className="text-xs sm:text-sm font-medium">Home</span>
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary-foreground/20 border border-primary-foreground/30">
+              <MapPin className="w-4 h-4" />
+              <span className="text-sm font-medium">Home</span>
             </div>
           </motion.div>
 
@@ -66,7 +72,7 @@ const AboutPage = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="font-heading text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-8 sm:mb-12"
+            className="font-heading text-3xl md:text-5xl font-bold mb-12"
             dangerouslySetInnerHTML={{ __html: "Devamatha Arts and Science<br/>College" }}
           >
           </motion.h1>
@@ -82,25 +88,25 @@ const AboutPage = () => {
       </section>
 
       {/* Management Section */}
-      <section className="pt-8 sm:pt-12 lg:pt-16 pb-6 sm:pb-8 bg-secondary/30">
+      <section className="pt-16 pb-8 bg-secondary/30">
         <div className="container max-w-7xl mx-auto px-2 sm:px-3 md:px-4">
           <div className="w-full">
-            <div className="mb-4 sm:mb-6 text-center">
-              <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl font-bold text-foreground mb-3 sm:mb-4">
+            <div className="mb-6 text-center">
+              <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground mb-4">
                 Management
               </h2>
-              <div className="w-16 sm:w-20 h-1 bg-accent rounded-full mx-auto"></div>
+              <div className="w-20 h-1 bg-accent rounded-full mx-auto"></div>
             </div>
             
-            <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 items-center">
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
               <motion.div
                 initial={{ opacity: 0, x: -30 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6 }}
               >
-                <div className="prose prose-sm sm:prose-base lg:prose-lg max-w-none">
-                  <p className="text-muted-foreground leading-relaxed mb-3 sm:mb-4 text-sm sm:text-base">
+                <div className="prose prose-lg max-w-none">
+                  <p className="text-muted-foreground leading-relaxed mb-4">
                     The management of Devamatha Arts & Science College, Paisakary, is vested in the Devamatha Educational Trust, Paisakary, an organization belonging to the Christian minority community.
                   </p>
                   
@@ -123,12 +129,12 @@ const AboutPage = () => {
               >
                 <div className="relative rounded-2xl overflow-hidden shadow-2xl">
                   <div className="aspect-video bg-gradient-to-br from-accent/20 to-primary/20 flex items-center justify-center">
-                    <div className="text-center px-4">
-                      <div className="w-16 h-16 sm:w-20 sm:h-20 bg-accent rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4">
-                        <Users className="w-8 h-8 sm:w-10 sm:h-10 text-accent-foreground" />
+                    <div className="text-center">
+                      <div className="w-20 h-20 bg-accent rounded-full flex items-center justify-center mx-auto mb-4">
+                        <Users className="w-10 h-10 text-accent-foreground" />
                       </div>
-                      <p className="font-heading text-lg sm:text-xl font-semibold text-foreground">Devamatha Educational Trust</p>
-                      <p className="text-muted-foreground text-sm sm:text-base">Paisakary</p>
+                      <p className="font-heading text-xl font-semibold text-foreground">Devamatha Educational Trust</p>
+                      <p className="text-muted-foreground">Paisakary</p>
                     </div>
                   </div>
                 </div>
@@ -139,7 +145,7 @@ const AboutPage = () => {
       </section>
 
       {/* College Profile Section */}
-      <section className="pt-6 sm:pt-8 pb-8 sm:pb-12 bg-background">
+      <section className="pt-8 pb-12 bg-background">
         <div className="container max-w-7xl mx-auto px-2 sm:px-3 md:px-4">
           <div className="w-full">
             <motion.div
@@ -149,15 +155,15 @@ const AboutPage = () => {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="w-full"
             >
-              <div className="mb-4 sm:mb-6 text-center">
-                <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl font-bold text-foreground mb-3 sm:mb-4">
+              <div className="mb-6 text-center">
+                <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground mb-4">
                   College Profile
                 </h2>
-                <div className="w-16 sm:w-20 h-1 bg-accent rounded-full mx-auto"></div>
+                <div className="w-20 h-1 bg-accent rounded-full mx-auto"></div>
               </div>
               
-              <div className="prose prose-sm sm:prose-base lg:prose-lg max-w-none">
-                <p className="text-muted-foreground leading-relaxed mb-3 sm:mb-4 text-sm sm:text-base">
+              <div className="prose prose-lg max-w-none">
+                <p className="text-muted-foreground leading-relaxed mb-4">
                   The Catholic Christian community at Deva Matha Forane Church, Paisakary, under the Syro-Malabar Metropolitan Archdioceses of Thalassery, wanted an institution of higher learning for a long time for the higher education of its youth, and thus to bring about the all-round development of the region. Their long-cherished dream saw fruition under the able leadership of the then Vicar of Deva Matha Forane Church, Rev. Fr. John Mullakkara (2003-2005).
                 </p>
                 
@@ -208,36 +214,36 @@ const AboutPage = () => {
 
       
       {/* Vision & Mission Section */}
-      <section className="pt-6 sm:pt-8 pb-8 sm:pb-12 bg-background">
+      <section className="pt-8 pb-12 bg-background">
         <div className="container max-w-7xl mx-auto px-2 sm:px-3 md:px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center mb-8 sm:mb-12"
+            className="text-center mb-12"
           >
-            <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl font-bold text-foreground mb-3 sm:mb-4">
+            <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground mb-4">
               Vision & Mission
             </h2>
-            <div className="w-16 sm:w-20 h-1 bg-accent rounded-full mx-auto"></div>
+            <div className="w-20 h-1 bg-accent rounded-full mx-auto"></div>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 gap-4 sm:gap-6 md:gap-8">
+          <div className="grid md:grid-cols-2 gap-8">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="bg-gradient-to-br from-accent/5 to-accent/10 p-4 sm:p-6 lg:p-8 rounded-2xl border border-accent/20"
+              className="bg-gradient-to-br from-accent/5 to-accent/10 p-8 rounded-2xl border border-accent/20"
             >
-              <div className="flex items-center gap-3 sm:gap-4 mb-4 sm:mb-6">
-                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-accent rounded-full flex items-center justify-center">
-                  <Eye className="w-5 h-5 sm:w-6 sm:h-6 text-accent-foreground" />
+              <div className="flex items-center gap-4 mb-6">
+                <div className="w-12 h-12 bg-accent rounded-full flex items-center justify-center">
+                  <Eye className="w-6 h-6 text-accent-foreground" />
                 </div>
-                <h3 className="font-heading text-xl sm:text-2xl font-bold text-foreground">Vision</h3>
+                <h3 className="font-heading text-2xl font-bold text-foreground">Vision</h3>
               </div>
               
-              <p className="text-muted-foreground leading-relaxed text-sm sm:text-base lg:text-lg">
+              <p className="text-muted-foreground leading-relaxed text-lg">
                 Be a beacon of light guiding students towards knowledge, responsibility, and meaningful contribution to society, enabling them to face life's opportunities and challenges with confidence.
               </p>
             </motion.div>
@@ -247,16 +253,16 @@ const AboutPage = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="bg-gradient-to-br from-primary/5 to-primary/10 p-4 sm:p-6 lg:p-8 rounded-2xl border border-primary/20"
+              className="bg-gradient-to-br from-primary/5 to-primary/10 p-8 rounded-2xl border border-primary/20"
             >
-              <div className="flex items-center gap-3 sm:gap-4 mb-4 sm:mb-6">
-                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-primary rounded-full flex items-center justify-center">
-                  <Target className="w-5 h-5 sm:w-6 sm:h-6 text-primary-foreground" />
+              <div className="flex items-center gap-4 mb-6">
+                <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center">
+                  <Target className="w-6 h-6 text-primary-foreground" />
                 </div>
-                <h3 className="font-heading text-xl sm:text-2xl font-bold text-foreground">Mission</h3>
+                <h3 className="font-heading text-2xl font-bold text-foreground">Mission</h3>
               </div>
               
-              <p className="text-muted-foreground leading-relaxed text-sm sm:text-base lg:text-lg">
+              <p className="text-muted-foreground leading-relaxed text-lg">
                 To provide inclusive, gender-sensitive, environmentally conscious, and intellectually enriching academic and non-academic experiences, supporting students in their intellectual, emotional, and spiritual growth.
               </p>
             </motion.div>
@@ -265,7 +271,7 @@ const AboutPage = () => {
       </section>
 
       {/* Leadership Section */}
-      <section className="pt-4 sm:pt-6 pb-6 sm:pb-8 bg-background relative overflow-hidden">
+      <section className="pt-4 pb-8 bg-background relative overflow-hidden">
         {/* Background Elements */}
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute top-[10%] left-[-10%] w-[50%] h-[50%] bg-accent/5 rounded-full blur-[120px]" />
@@ -274,7 +280,7 @@ const AboutPage = () => {
 
         <div className="container relative z-10">
           {/* Leadership Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-10 xl:gap-14 pt-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 lg:gap-14 pt-4">
             {[
               {
                 id: 1,
@@ -309,8 +315,22 @@ const AboutPage = () => {
                 transition={{ delay: index * 0.15, duration: 0.7, ease: "easeOut" }}
                 className="group relative w-full max-w-[420px] mx-auto lg:max-w-none"
               >
+                {/* Title at top center */}
+                <div className="text-center mb-4">
+                  <div className="text-4xl md:text-5xl font-display font-bold">
+                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-primary">{member.title}</span>
+                  </div>
+                  <motion.div
+                    initial={{ width: 0 }}
+                    whileInView={{ width: 60 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.3, duration: 0.8 }}
+                    className="h-1 bg-accent rounded-full mx-auto mt-2"
+                  />
+                </div>
+
                 {/* The Image container */}
-                <div className="relative h-64 sm:h-80 md:h-96 lg:h-[24rem] xl:h-[28rem] w-full rounded-2xl sm:rounded-[2.5rem] overflow-hidden shadow-[0_10px_40px_-10px_rgba(0,0,0,0.1)] bg-card border border-border/60 group-hover:border-accent/50 transition-all duration-700 group-hover:-translate-y-2">
+                <div className="relative h-[24rem] lg:h-[28rem] w-full rounded-[2.5rem] overflow-hidden shadow-[0_10px_40px_-10px_rgba(0,0,0,0.1)] bg-card border border-border/60 group-hover:border-accent/50 transition-all duration-700 group-hover:-translate-y-2">
 
                   {/* Subtle color overlay */}
                   <div className="absolute inset-0 bg-primary/10 mix-blend-overlay z-10 group-hover:opacity-0 transition-opacity duration: 700" />
@@ -326,8 +346,9 @@ const AboutPage = () => {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration:700 z-10" />
 
                   {/* Bottom Content Area */}
-                  <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6 lg:p-8 z-20 flex flex-col items-center text-center transform translate-y-4 sm:translate-y-6 group-hover:translate-y-0 transition-transform duration:700 ease-[cubic-bezier(0.25,1,0.5,1)]">
-                    <h3 className="text-base sm:text-lg md:text-xl lg:text-2xl font-display font-bold text-white">{member.name}</h3>
+                  <div className="absolute bottom-0 left-0 right-0 p-8 z-20 flex flex-col items-center text-center transform translate-y-6 group-hover:translate-y-0 transition-transform duration:700 ease-[cubic-bezier(0.25,1,0.5,1)]">
+                    <h3 className="text-xl md:text-2xl font-display font-bold text-white mb-2">{member.name}</h3>
+                    {/* <p className="text-sm md:text-base text-white/80 font-medium">{member.role}</p> */}
                   </div>
                 </div>
               </motion.div>
@@ -337,25 +358,25 @@ const AboutPage = () => {
       </section>
 
       {/* Former Leadership Section */}
-      <section className="pt-6 sm:pt-8 pb-8 sm:pb-12 bg-background">
+      <section className="pt-8 pb-12 bg-background">
         <div className="container max-w-7xl mx-auto px-2 sm:px-3 md:px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center mb-6 sm:mb-8 md:mb-12"
+            className="text-center mb-12"
           >
-            <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl font-bold text-foreground mb-3 sm:mb-4">
+            <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground mb-4">
               Former Leadership
             </h2>
-            <div className="w-16 sm:w-20 h-1 bg-accent rounded-full mx-auto"></div>
+            <div className="w-20 h-1 bg-accent rounded-full mx-auto"></div>
           </motion.div>
 
-          <div className="flex justify-center mb-6 sm:mb-8">
+          <div className="flex justify-center mb-8">
             <div className="inline-flex p-1 bg-card rounded-xl border border-border shadow-lg">
               <button
                 onClick={() => setActiveTab("managers")}
-                className={`px-4 py-1.5 sm:px-6 sm:py-2 rounded-lg font-semibold transition-all duration-300 text-sm sm:text-base ${
+                className={`px-6 py-2 rounded-lg font-semibold transition-all duration-300 ${
                   activeTab === "managers"
                     ? "bg-accent text-accent-foreground shadow-lg"
                     : "text-muted-foreground hover:text-foreground"
@@ -365,7 +386,7 @@ const AboutPage = () => {
               </button>
               <button
                 onClick={() => setActiveTab("principals")}
-                className={`px-4 py-1.5 sm:px-6 sm:py-2 rounded-lg font-semibold transition-all duration-300 text-sm sm:text-base ${
+                className={`px-6 py-2 rounded-lg font-semibold transition-all duration-300 ${
                   activeTab === "principals"
                     ? "bg-accent text-accent-foreground shadow-lg"
                     : "text-muted-foreground hover:text-foreground"
@@ -382,7 +403,7 @@ const AboutPage = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.3 }}
           >
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {(activeTab === "managers" ? formerManagers : formerPrincipals).map((leader, index) => (
                 <motion.div
                   key={index}
@@ -391,13 +412,13 @@ const AboutPage = () => {
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                   whileHover={{ y: -5, boxShadow: "0 20px 40px -12px hsl(var(--primary) / 0.25)" }}
-                  className="bg-card p-4 sm:p-6 rounded-xl border border-border shadow-lg text-center cursor-pointer"
+                  className="bg-card p-6 rounded-xl border border-border shadow-lg text-center cursor-pointer"
                 >
                   {(() => {
                     const src = getPersonImageSrc(leader);
                     if (src) {
                       return (
-                        <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-full overflow-hidden mx-auto mb-3 sm:mb-4 shadow-sm ring-2 ring-border">
+                        <div className="w-16 h-16 rounded-full overflow-hidden mx-auto mb-4 shadow-sm ring-2 ring-border">
                           <img
                             src={src}
                             alt={leader}
@@ -408,12 +429,12 @@ const AboutPage = () => {
                       );
                     }
                     return (
-                      <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-br from-accent/20 to-primary/20 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4">
-                        <Award className="w-6 h-6 sm:w-8 sm:h-8 text-accent" />
+                      <div className="w-16 h-16 bg-gradient-to-br from-accent/20 to-primary/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <Award className="w-8 h-8 text-accent" />
                       </div>
                     );
                   })()}
-                  <p className="font-heading font-semibold text-foreground text-sm sm:text-base">{leader}</p>
+                  <p className="font-heading font-semibold text-foreground">{leader}</p>
                 </motion.div>
               ))}
             </div>

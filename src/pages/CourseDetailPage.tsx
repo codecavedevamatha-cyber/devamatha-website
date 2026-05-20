@@ -2,6 +2,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import { motion } from "framer-motion";
 import { MapPin, Briefcase, GraduationCap, Building, Star, ArrowLeft, ArrowRight } from "lucide-react";
+import { Helmet } from "react-helmet-async";
 import { Button } from "@/components/ui/button";
 import Header from "@/components/Header";
 import CollegeFooter from "@/components/CollegeFooter";
@@ -37,6 +38,13 @@ const CourseDetailPage = () => {
   if (!course) {
     return (
       <>
+        <Helmet>
+          <title>Course Not Found | Devamatha College</title>
+          <meta
+            name="description"
+            content="The requested course could not be found at Devamatha Arts & Science College Paisakary."
+          />
+        </Helmet>
         <Header />
         <div className="min-h-screen flex items-center justify-center">
           <h1 className="text-2xl font-bold">Course not found</h1>
@@ -48,6 +56,10 @@ const CourseDetailPage = () => {
 
   return (
     <>
+      <Helmet>
+        <title>{`${course.name.replace(/<br\s*\/?>/gi, " ")} | Devamatha College`}</title>
+        <meta name="description" content={course.description} />
+      </Helmet>
       <Header />
       
       {/* Hero Section */}

@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Helmet } from "react-helmet-async";
 import Header from "@/components/Header";
 import CollegeFooter from "@/components/CollegeFooter";
 import Breadcrumb from "@/components/Breadcrumb";
@@ -6,6 +7,13 @@ import Breadcrumb from "@/components/Breadcrumb";
 const IQACPage = () => {
   return (
     <>
+      <Helmet>
+        <title>IQAC | Devamatha College</title>
+        <meta
+          name="description"
+          content="Internal Quality Assurance Cell details for Devamatha Arts & Science College Paisakary."
+        />
+      </Helmet>
       <Header />
       <Breadcrumb />
       
