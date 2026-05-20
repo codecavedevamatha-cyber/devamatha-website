@@ -214,61 +214,61 @@ const NewsPage = () => {
             )}
 
             {/* Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {newsData.slice(1).map((item, index) => {
-                const Icon = item.icon;
-
-                return (
-                  <motion.article
-                    key={item._id}
-                    initial={{
-                      opacity: 0,
-                      y: 30,
-                    }}
-                    whileInView={{
-                      opacity: 1,
-                      y: 0,
-                    }}
-                    viewport={{
-                      once: true,
-                    }}
-                    transition={{
-                      duration: 0.5,
-                      delay: index * 0.1,
-                    }}
-                    className="bg-card/50 hover:bg-card/80 backdrop-blur-sm border border-border/60 hover:border-accent/40 rounded-2xl overflow-hidden transition-all duration-300 hover:shadow-xl cursor-pointer"
-                    onClick={() => openNewsModal(item)}
-                  >
-                    {/* Image */}
-                    <div className="relative h-48 overflow-hidden bg-black/5">
-                      <img
-                        src={item.image}
-                        alt={item.title}
-                        className="w-full h-full object-contain"
-                        loading="lazy"
-                      />
-                    </div>
-
-                    {/* Content */}
-                    <div className="p-6">
-                      <h3 className="text-xl font-bold text-foreground mb-3 hover:text-accent transition-colors duration-300 line-clamp-2">
-                        {item.title}
-                      </h3>
-
-                      <p className="text-muted-foreground text-sm leading-relaxed mb-4 line-clamp-3">
-                        {item.description}
-                      </p>
-
-                      {/* Date */}
-                      <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                        <Calendar className="w-4 h-4" />
-
-                        <span>{formatDate(item.date)}</span>
+            <div className="pt-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {newsData.slice(1).map((item, index) => {
+                  return (
+                    <motion.article
+                      key={item._id}
+                      initial={{
+                        opacity: 0,
+                        y: 30,
+                      }}
+                      whileInView={{
+                        opacity: 1,
+                        y: 0,
+                      }}
+                      viewport={{
+                        once: true,
+                      }}
+                      transition={{
+                        duration: 0.5,
+                        delay: index * 0.1,
+                      }}
+                      className="bg-card/50 hover:bg-card/80 backdrop-blur-sm border border-border/60 hover:border-accent/40 rounded-2xl overflow-hidden transition-all duration-300 hover:shadow-xl cursor-pointer"
+                      onClick={() => openNewsModal(item)}
+                    >
+                      {/* Image */}
+                      <div className="relative h-48 overflow-hidden bg-black/5">
+                        <img
+                          src={item.image}
+                          alt={item.title}
+                          className="w-full h-full object-contain"
+                          loading="lazy"
+                        />
                       </div>
-                    </div>
-                  </motion.article>
-                );
-              })}
+
+                      {/* Content */}
+                      <div className="p-6">
+                        <h3 className="text-xl font-bold text-foreground mb-3 hover:text-accent transition-colors duration-300 line-clamp-2">
+                          {item.title}
+                        </h3>
+
+                        <p className="text-muted-foreground text-sm leading-relaxed mb-4 line-clamp-3">
+                          {item.description}
+                        </p>
+
+                        {/* Date */}
+                        <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                          <Calendar className="w-4 h-4" />
+
+                          <span>{formatDate(item.date)}</span>
+                        </div>
+                      </div>
+                    </motion.article>
+                  );
+                })}
+              </div>
             </div>
           </div>
         </div>
@@ -381,3 +381,4 @@ const NewsPage = () => {
 };
 
 export default NewsPage;
+
