@@ -63,7 +63,7 @@ const NewsEventsSection = () => {
     const fetchNews = async () => {
       try {
         const data = await client.fetch(`
-          *[_type == "news"] | order(date desc){
+          *[_type == "news"] {
             _id,
             title,
             description,

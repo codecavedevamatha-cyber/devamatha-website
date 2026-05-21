@@ -67,7 +67,7 @@ const NewsPage = () => {
     const fetchNews = async () => {
       try {
         const data = await client.fetch(`
-          *[_type == "news"] | order(date desc){
+          *[_type == "news"] {
             _id,
             title,
             description,
@@ -239,11 +239,11 @@ const NewsPage = () => {
                       onClick={() => openNewsModal(item)}
                     >
                       {/* Image */}
-                      <div className="relative h-48 overflow-hidden bg-black/5">
+                      <div className="relative h-48 overflow-hidden bg-gray-50 p-4 flex items-center justify-center">
                         <img
                           src={item.image}
                           alt={item.title}
-                          className="w-full h-full object-contain"
+                          className="max-w-full max-h-full object-contain rounded-lg"
                           loading="lazy"
                         />
                       </div>
@@ -381,4 +381,3 @@ const NewsPage = () => {
 };
 
 export default NewsPage;
-
