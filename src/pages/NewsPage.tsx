@@ -67,7 +67,7 @@ const NewsPage = () => {
     const fetchNews = async () => {
       try {
         const data = await client.fetch(`
-          *[_type == "news"] {
+          *[_type == "news"] | order(_createdAt desc ) {
             _id,
             title,
             description,
@@ -177,11 +177,11 @@ const NewsPage = () => {
               >
                 <div className="grid lg:grid-cols-2 gap-0">
                   {/* Image */}
-                  <div className="relative h-64 lg:h-96 bg-black/5">
+                  <div className="relative flex items-center justify-center bg-gray-50 min-h-64 lg:min-h-96 p-8 lg:p-12">
                     <img
                       src={newsData[0]?.image}
                       alt={newsData[0]?.title}
-                      className="w-full h-full object-contain"
+                      className="max-w-full max-h-full object-contain rounded-xl"
                       loading="lazy"
                     />
                   </div>
@@ -243,7 +243,7 @@ const NewsPage = () => {
                         <img
                           src={item.image}
                           alt={item.title}
-                          className="max-w-full max-h-full object-contain rounded-lg"
+                          className="max-w-full max-h-full object-contain hover:scale-105 transition-transform duration-300 rounded-lg"
                           loading="lazy"
                         />
                       </div>
