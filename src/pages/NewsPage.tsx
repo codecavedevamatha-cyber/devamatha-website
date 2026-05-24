@@ -315,11 +315,11 @@ const NewsPage = () => {
               </button>
 
               {/* Image */}
-              <div className="relative h-64 md:h-80 overflow-hidden bg-black/5">
+              <div className="relative h-64 md:h-80 overflow-hidden bg-gray-50 p-6 flex items-center justify-center">
                 <img
                   src={selectedNews.image}
                   alt={selectedNews.title}
-                  className="w-full h-full object-contain"
+                  className="max-w-full max-h-full object-contain rounded-xl"
                   draggable={false}
                 />
               </div>
