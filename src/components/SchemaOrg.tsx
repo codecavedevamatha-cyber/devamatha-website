@@ -1,39 +1,57 @@
 import React from 'react';
+import { Helmet } from 'react-helmet-async';
 
 interface SchemaOrgProps {
   type: 'Organization' | 'WebSite' | 'BreadcrumbList' | 'CollegeOrUniversity';
-  data?: any;
+  data?: {
+    breadcrumbs?: Array<Record<string, unknown>>;
+    courses?: Array<Record<string, unknown>>;
+    description?: string;
+  };
 }
 
+const SITE_URL = 'https://www.devamathacollege.ac.in';
+const SITE_NAME = 'Devamatha Arts & Science College';
+const SITE_DESCRIPTION =
+  'Official website of Devamatha Arts & Science College, Paisakary.';
+const SOCIAL_PROFILES = [
+  'https://www.instagram.com/devamathacollegepaisakary/',
+  'https://youtube.com/@devamathacollegepaisakary',
+];
+
+const postalAddress = {
+  '@type': 'PostalAddress',
+  streetAddress: 'Paisakary P O, Payyavoor',
+  addressLocality: 'Kannur',
+  addressRegion: 'Kerala',
+  postalCode: '670633',
+  addressCountry: 'IN',
+};
+
+const logo = {
+  '@type': 'ImageObject',
+  url: `${SITE_URL}/logo.png`,
+};
+
 const SchemaOrg: React.FC<SchemaOrgProps> = ({ type, data }) => {
-  let schema: any = {};
+  let schema: Record<string, unknown> | null = null;
 
   switch (type) {
     case 'Organization':
       schema = {
         '@context': 'https://schema.org',
-        '@type': 'CollegeOrUniversity',
-        name: 'Devamatha Arts & Science College',
-        url: 'https://www.devamathacollege.ac.in/',
-        logo: 'https://www.devamathacollege.ac.in/logo.png',
-        description: 'Devamatha Arts & Science College - A premier institution for higher education offering undergraduate and postgraduate programmes in various disciplines.',
-        address: {
-          '@type': 'PostalAddress',
-          streetAddress: 'Devamatha College P.O.',
-          addressLocality: 'Kannur',
-          addressRegion: 'Kerala',
-          postalCode: '670632',
-          addressCountry: 'IN'
-        },
-        contactPoint: {
-          '@type': 'ContactPoint',
-          telephone: '+91-497-271-5185',
-          contactType: 'admissions'
-        },
-        sameAs: [
-          'https://www.facebook.com/devamathacollege',
-          'https://www.instagram.com/devamathacollege'
-        ]
+        '@type': 'Organization',
+        '@id': `${SITE_URL}/#organization`,
+        name: SITE_NAME,
+        alternateName: 'Deva Matha College',
+        url: SITE_URL,
+        logo,
+        image: `${SITE_URL}/img/hero.jpg`,
+        description: SITE_DESCRIPTION,
+        address: postalAddress,
+        email: 'mailto:dmc@devamathacollege.ac.in',
+        telephone: '+91-460-293-9190',
+        sameAs: SOCIAL_PROFILES,
       };
       break;
 
@@ -41,14 +59,14 @@ const SchemaOrg: React.FC<SchemaOrgProps> = ({ type, data }) => {
       schema = {
         '@context': 'https://schema.org',
         '@type': 'WebSite',
-        name: 'Devamatha Arts & Science College',
-        url: 'https://www.devamathacollege.ac.in/',
-        description: 'Official website of Devamatha Arts & Science College, Kannur',
-        potentialAction: {
-          '@type': 'SearchAction',
-          target: 'https://www.devamathacollege.ac.in/search?q={search_term_string}',
-          'query-input': 'required name=search_term_string'
-        }
+        '@id': `${SITE_URL}/#website`,
+        name: SITE_NAME,
+        url: SITE_URL,
+        description: SITE_DESCRIPTION,
+        inLanguage: 'en-IN',
+        publisher: {
+          '@id': `${SITE_URL}/#organization`,
+        },
       };
       break;
 
@@ -56,7 +74,7 @@ const SchemaOrg: React.FC<SchemaOrgProps> = ({ type, data }) => {
       schema = {
         '@context': 'https://schema.org',
         '@type': 'BreadcrumbList',
-        itemListElement: data?.breadcrumbs || []
+        itemListElement: data?.breadcrumbs || [],
       };
       break;
 
@@ -64,23 +82,38 @@ const SchemaOrg: React.FC<SchemaOrgProps> = ({ type, data }) => {
       schema = {
         '@context': 'https://schema.org',
         '@type': 'CollegeOrUniversity',
-        name: 'Devamatha Arts & Science College',
-        url: 'https://www.devamathacollege.ac.in/',
-        description: data?.description || 'A premier institution for higher education offering undergraduate and postgraduate programmes.',
-        hasOfferCatalog: {
-          '@type': 'OfferCatalog',
-          name: 'Academic Programmes',
-          itemListElement: data?.courses || []
-        }
+        '@id': `${SITE_URL}/#college`,
+        name: SITE_NAME,
+        alternateName: 'Deva Matha College',
+        url: SITE_URL,
+        logo,
+        image: `${SITE_URL}/img/hero.jpg`,
+        description: data?.description || SITE_DESCRIPTION,
+        address: postalAddress,
+        email: 'mailto:dmc@devamathacollege.ac.in',
+        telephone: '+91-460-293-9190',
+        sameAs: SOCIAL_PROFILES,
+        ...(data?.courses
+          ? {
+              hasOfferCatalog: {
+                '@type': 'OfferCatalog',
+                name: 'Academic Programmes',
+                itemListElement: data.courses,
+              },
+            }
+          : {}),
       };
       break;
   }
 
+  if (!schema) {
+    return null;
+  }
+
   return (
-    <script
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
-    />
+    <Helmet>
+      <script type="application/ld+json">{JSON.stringify(schema)}</script>
+    </Helmet>
   );
 };
 

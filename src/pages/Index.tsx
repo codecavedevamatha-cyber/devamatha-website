@@ -9,6 +9,7 @@ import PosterSlider from "@/components/PosterSlider";
 import NewsEventsSection from "@/components/NewsEventsSection";
 import FacilitiesSection from "@/components/FacilitiesSection";
 import CollegeFooter from "@/components/CollegeFooter";
+import SchemaOrg from "@/components/SchemaOrg";
 import { Helmet } from "react-helmet-async";
 
 const Index = () => (
@@ -20,6 +21,9 @@ const Index = () => (
         content="Official website of Devamatha Arts & Science College Paisakary."
       />
     </Helmet>
+    <SchemaOrg type="Organization" />
+    <SchemaOrg type="CollegeOrUniversity" />
+    <SchemaOrg type="WebSite" />
     <Header />
     <HeroSection />
     <CoursesSection />
