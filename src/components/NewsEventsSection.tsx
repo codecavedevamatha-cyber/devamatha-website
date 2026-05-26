@@ -165,19 +165,19 @@ const NewsEventsSection = () => {
                 className="relative bg-gradient-to-r from-accent/10 via-primary/5 to-accent/10 rounded-3xl overflow-hidden border border-accent/20 shadow-2xl cursor-pointer"
                 onClick={() => openNewsModal(newsData[0])}
               >
-                <div className="grid lg:grid-cols-2 gap-0">
+                <div className="grid items-stretch lg:grid-cols-2 gap-0">
                   {/* Image */}
-                  <div className="relative flex items-center justify-center bg-gray-50 min-h-64 lg:min-h-96 p-8 lg:p-12">
+                  <div className="relative flex min-h-[18rem] items-center justify-center bg-gray-50 p-6 lg:min-h-[24rem] lg:p-8">
                     <img
                       src={newsData[0]?.image}
                       alt={newsData[0]?.title}
-                      className="max-w-full max-h-full object-contain rounded-xl"
+                      className="max-h-[15rem] w-auto max-w-full object-contain rounded-xl sm:max-h-[17rem] lg:max-h-[22rem]"
                       loading="lazy"
                     />
                   </div>
 
                   {/* Content */}
-                  <div className="p-8 lg:p-12 flex flex-col justify-center">
+                  <div className="flex h-full flex-col justify-center p-8 lg:p-12">
                     <div className="flex items-center gap-3 mb-4">
                       <Calendar className="w-5 h-5 text-accent" />
 
@@ -297,11 +297,11 @@ const NewsEventsSection = () => {
               </button>
 
               {/* Image */}
-              <div className="relative h-64 md:h-80 overflow-hidden bg-gray-50 p-6 flex items-center justify-center">
+              <div className="relative h-[16rem] md:h-[20rem] overflow-hidden bg-gray-50 p-4 md:p-6 flex items-center justify-center">
                 <img
                   src={selectedNews.image}
                   alt={selectedNews.title}
-                  className="max-w-full max-h-full object-contain rounded-xl"
+                  className="w-full h-full max-h-full object-contain rounded-xl"
                   draggable={false}
                 />
               </div>
