@@ -10,8 +10,8 @@ export const client = createClient({
   apiVersion: "2025-05-17",
 
   useCdn: true,
+  token: import.meta.env.VITE_SANITY_TOKEN,
 });
-
 const builder = imageUrlBuilder(client);
 
 export function urlFor(source: any) {

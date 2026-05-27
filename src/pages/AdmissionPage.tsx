@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import Header from "@/components/Header";
 import CollegeFooter from "@/components/CollegeFooter";
 import Breadcrumb from "@/components/Breadcrumb";
+import { client, urlFor } from "@/sanity";
 
 const AdmissionPage = () => {
   const [formData, setFormData] = useState({
@@ -29,37 +30,44 @@ const AdmissionPage = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
     setIsSubmitting(true);
-    setSubmitMessage('');
+    setSubmitMessage("");
 
     try {
-      const response = await fetch('http://localhost:8000/api/management-quota-applications/', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
+      await client.create({
+        _type: "managementQuota",
+
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+        course: formData.course,
+        percentage: formData.percentage,
+        previous_school: formData.previous_school,
+        address: formData.address,
+        parent_name: formData.parent_name,
+        parent_phone: formData.parent_phone,
+
+        submittedAt: new Date().toISOString(),
       });
 
-      if (response.ok) {
-        setSubmitMessage('Enquiry submitted successfully!');
-        setFormData({
-          name: '',
-          email: '',
-          phone: '',
-          course: '',
-          percentage: '',
-          previous_school: '',
-          address: '',
-          parent_name: '',
-          parent_phone: ''
-        });
-      } else {
-        setSubmitMessage('Error submitting enquiry. Please try again.');
-      }
+      setSubmitMessage("Enquiry submitted successfully!");
+
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        course: "",
+        percentage: "",
+        previous_school: "",
+        address: "",
+        parent_name: "",
+        parent_phone: "",
+      });
     } catch (error) {
-      console.error('Error submitting form:', error);
-      setSubmitMessage('Error submitting enquiry. Please try again.');
+      console.error("Error submitting form:", error);
+
+      setSubmitMessage("Error submitting enquiry. Please try again.");
     } finally {
       setIsSubmitting(false);
     }

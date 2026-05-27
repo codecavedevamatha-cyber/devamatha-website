@@ -7,6 +7,7 @@ import Header from "@/components/Header";
 import CollegeFooter from "@/components/CollegeFooter";
 import Breadcrumb from "@/components/Breadcrumb";
 import { useNavigate } from "react-router-dom";
+import { client } from "@/sanity";
 
 const StudentsCornerPage = () => {
   const navigate = useNavigate();
@@ -29,43 +30,51 @@ const StudentsCornerPage = () => {
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    setSubmitMessage('');
+const handleSubmit = async (e: React.FormEvent) => {
+  e.preventDefault();
 
-    try {
-      const response = await fetch('http://localhost:8000/api/alumni-associations/', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
+  setIsSubmitting(true);
+  setSubmitMessage("");
 
-      if (response.ok) {
-        setSubmitMessage('Registration submitted successfully!');
-        setFormData({
-          name: '',
-          email: '',
-          phone: '',
-          batch: '',
-          course: '',
-          current_occupation: '',
-          company: '',
-          address: '',
-          linkedin_profile: ''
-        });
-      } else {
-        setSubmitMessage('Error submitting registration. Please try again.');
-      }
-    } catch (error) {
-      console.error('Error submitting form:', error);
-      setSubmitMessage('Error submitting registration. Please try again.');
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
+  try {
+    await client.create({
+      _type: "alumniAssociation",
+
+      name: formData.name,
+      email: formData.email,
+      phone: formData.phone,
+      batch: formData.batch,
+      course: formData.course,
+      current_occupation: formData.current_occupation,
+      company: formData.company,
+      address: formData.address,
+      linkedin_profile: formData.linkedin_profile,
+
+      contacted: false,
+      submittedAt: new Date().toISOString(),
+    });
+
+    setSubmitMessage("Registration submitted successfully!");
+
+    setFormData({
+      name: "",
+      email: "",
+      phone: "",
+      batch: "",
+      course: "",
+      current_occupation: "",
+      company: "",
+      address: "",
+      linkedin_profile: "",
+    });
+  } catch (error) {
+    console.error("Error submitting form:", error);
+
+    setSubmitMessage("Error submitting registration. Please try again.");
+  } finally {
+    setIsSubmitting(false);
+  }
+};
 
   return (
     <>
