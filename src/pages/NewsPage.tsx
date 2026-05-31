@@ -67,7 +67,7 @@ const NewsPage = () => {
     const fetchNews = async () => {
       try {
         const data = await client.fetch(`
-          *[_type == "news"] | order(_createdAt desc ) {
+          *[_type == "news"] | order(date desc ) {
             _id,
             title,
             description,
