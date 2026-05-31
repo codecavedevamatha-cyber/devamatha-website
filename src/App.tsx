@@ -11,6 +11,8 @@ import AboutPage from "./pages/AboutPage";
 import DepartmentsPage from "./pages/DepartmentsPage";
 import DepartmentDetailPage from "./pages/DepartmentDetailPage";
 import GalleryPage from "./pages/GalleryPage";
+import GalleryCategoriesPage from "./pages/GalleryCategoriesPage";
+import GalleryImagesPage from "./pages/GalleryImagesPage";
 import StudentsCornerPage from "./pages/StudentsCornerPage";
 import AdmissionPage from "./pages/AdmissionPage";
 import IQACPage from "./pages/IQACPage";
@@ -92,6 +94,8 @@ const App = () => {
             <Route path="/departments" element={<DepartmentsPage />} />
             <Route path="/departments/:departmentId" element={<DepartmentDetailPage />} />
             <Route path="/gallery" element={<GalleryPage />} />
+            <Route path="/gallery/year/:yearId" element={<GalleryCategoriesPage />} />
+            <Route path="/gallery/category/:categoryId" element={<GalleryImagesPage />} />
             <Route path="/students-corner" element={<StudentsCornerPage />} />
             <Route path="/admission" element={<AdmissionPage />} />
             <Route path="/iqac" element={<IQACPage />} />

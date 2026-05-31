@@ -1,17 +1,10 @@
 import { useState, useEffect, useCallback } from "react";
+import { Link } from "react-router-dom";
 
 import { motion, AnimatePresence } from "framer-motion";
 import { Helmet } from "react-helmet-async";
 
-import {
-  X,
-  Play,
-  Camera,
-  Video,
-  ChevronLeft,
-  ChevronRight,
-  Maximize2,
-} from "lucide-react";
+import { X, Play, Camera, Video, CalendarDays } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 
@@ -21,14 +14,12 @@ import CollegeFooter from "@/components/CollegeFooter";
 
 import { client, urlFor } from "@/sanity";
 
-type PhotoItem = {
+type YearGalleryItem = {
   _id: string;
 
-  title: string;
+  year: number;
 
-  image: any;
-
-  year?: number;
+  thumbnail: any;
 };
 
 type VideoItem = {
@@ -42,11 +33,9 @@ type VideoItem = {
 };
 
 const GalleryPage = () => {
-  const [photoItems, setPhotoItems] = useState<PhotoItem[]>([]);
+  const [yearItems, setYearItems] = useState<YearGalleryItem[]>([]);
 
   const [videoItems, setVideoItems] = useState<VideoItem[]>([]);
-
-  const [selectedPhoto, setSelectedPhoto] = useState<PhotoItem | null>(null);
 
   const [selectedVideo, setSelectedVideo] = useState<VideoItem | null>(null);
 
@@ -54,32 +43,49 @@ const GalleryPage = () => {
 
   const [filter, setFilter] = useState<"photos" | "videos">("photos");
 
-  // FETCH PHOTOS
+  const [isYearsLoading, setIsYearsLoading] = useState(true);
+
+  const [isVideosLoading, setIsVideosLoading] = useState(true);
+
+  const [yearsError, setYearsError] = useState("");
+
+  const [videosError, setVideosError] = useState("");
+
+  // FETCH PHOTO YEARS
   useEffect(() => {
-    const fetchPhotos = async () => {
+    const fetchYears = async () => {
       try {
+        setIsYearsLoading(true);
+        setYearsError("");
+
         const data = await client.fetch(`
-          *[_type == "gallery"] | order(_createdAt desc){
+          *[_type == "yearGallery"] | order(year desc){
             _id,
-            title,
-            image,
-            year
+            year,
+            thumbnail
           }
         `);
 
-        setPhotoItems(data);
+        setYearItems(data);
       } catch (error) {
-        console.error("Error fetching gallery:", error);
+        console.error("Error fetching gallery years:", error);
+
+        setYearsError("Unable to load gallery years right now.");
+      } finally {
+        setIsYearsLoading(false);
       }
     };
 
-    fetchPhotos();
+    fetchYears();
   }, []);
 
   // FETCH VIDEOS
   useEffect(() => {
     const fetchVideos = async () => {
       try {
+        setIsVideosLoading(true);
+        setVideosError("");
+
         const data = await client.fetch(`
           *[_type == "video"] | order(_createdAt desc){
             _id,
@@ -92,6 +98,10 @@ const GalleryPage = () => {
         setVideoItems(data);
       } catch (error) {
         console.error("Error fetching videos:", error);
+
+        setVideosError("Unable to load videos right now.");
+      } finally {
+        setIsVideosLoading(false);
       }
     };
 
@@ -149,12 +159,6 @@ const GalleryPage = () => {
     setLoadedImages((prev) => new Set(prev).add(id));
   }, []);
 
-  const openLightbox = (photo: PhotoItem) => {
-    setSelectedPhoto(photo);
-
-    document.body.style.overflow = "hidden";
-  };
-
   const openVideoModal = (video: VideoItem) => {
     setSelectedVideo(video);
 
@@ -166,47 +170,6 @@ const GalleryPage = () => {
 
     document.body.style.overflow = "unset";
   };
-
-  const closeLightbox = () => {
-    setSelectedPhoto(null);
-
-    document.body.style.overflow = "unset";
-  };
-
-  const navigatePhoto = (direction: "next" | "prev") => {
-    if (!selectedPhoto) return;
-
-    const currentIndex = photoItems.findIndex(
-      (item) => item._id === selectedPhoto._id,
-    );
-
-    let newIndex;
-
-    if (direction === "next") {
-      newIndex = (currentIndex + 1) % photoItems.length;
-    } else {
-      newIndex = currentIndex === 0 ? photoItems.length - 1 : currentIndex - 1;
-    }
-
-    setSelectedPhoto(photoItems[newIndex]);
-  };
-
-  // KEYBOARD NAVIGATION
-  useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (!selectedPhoto) return;
-
-      if (e.key === "Escape") closeLightbox();
-
-      if (e.key === "ArrowLeft") navigatePhoto("prev");
-
-      if (e.key === "ArrowRight") navigatePhoto("next");
-    };
-
-    document.addEventListener("keydown", handleKeyDown);
-
-    return () => document.removeEventListener("keydown", handleKeyDown);
-  }, [selectedPhoto, photoItems]);
 
   return (
     <>
@@ -303,11 +266,49 @@ const GalleryPage = () => {
             ))}
           </motion.div>
 
+          {filter === "photos" && isYearsLoading && (
+            <p className="text-center text-muted-foreground">
+              Loading gallery years...
+            </p>
+          )}
+
+          {filter === "videos" && isVideosLoading && (
+            <p className="text-center text-muted-foreground">
+              Loading videos...
+            </p>
+          )}
+
+          {filter === "photos" && yearsError && (
+            <p className="text-center text-destructive">{yearsError}</p>
+          )}
+
+          {filter === "videos" && videosError && (
+            <p className="text-center text-destructive">{videosError}</p>
+          )}
+
+          {filter === "photos" &&
+            !isYearsLoading &&
+            !yearsError &&
+            yearItems.length === 0 && (
+              <p className="text-center text-muted-foreground">
+                No photo galleries found.
+              </p>
+            )}
+
+          {filter === "videos" &&
+            !isVideosLoading &&
+            !videosError &&
+            videoItems.length === 0 && (
+              <p className="text-center text-muted-foreground">
+                No videos found.
+              </p>
+            )}
+
           {/* GRID */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 md:gap-6">
-            {/* PHOTOS */}
+            {/* PHOTO YEARS */}
             {filter === "photos" &&
-              photoItems.map((item, index) => (
+              yearItems.map((item, index) => (
                 <motion.div
                   key={item._id}
                   initial={{
@@ -315,9 +316,10 @@ const GalleryPage = () => {
                     y: 30,
                   }}
                   animate={{
-                    opacity: loadedImages.has(item._id) ? 1 : 0,
+                    opacity:
+                      !item.thumbnail || loadedImages.has(item._id) ? 1 : 0,
 
-                    y: loadedImages.has(item._id) ? 0 : 30,
+                    y: !item.thumbnail || loadedImages.has(item._id) ? 0 : 30,
                   }}
                   transition={{
                     duration: 0.5,
@@ -326,38 +328,45 @@ const GalleryPage = () => {
                   whileHover={{
                     y: -5,
                   }}
-                  className="group relative overflow-hidden rounded-xl bg-card border border-border shadow-md cursor-pointer"
-                  onClick={() => openLightbox(item)}
                 >
-                  <div className="aspect-video relative overflow-hidden">
-                    <img
-                      src={urlFor(item.image).url()}
-                      alt={item.title}
-                      loading="lazy"
-                      onLoad={() => handleImageLoad(item._id)}
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                    />
+                  <Link
+                    to={`/gallery/year/${item._id}`}
+                    className="group relative overflow-hidden rounded-xl bg-card border border-border shadow-md cursor-pointer block"
+                  >
+                    <div className="aspect-video relative overflow-hidden">
+                      {item.thumbnail ? (
+                        <img
+                          src={urlFor(item.thumbnail).url()}
+                          alt={`${item.year} gallery`}
+                          loading="lazy"
+                          onLoad={() => handleImageLoad(item._id)}
+                          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                        />
+                      ) : (
+                        <div className="w-full h-full bg-muted flex items-center justify-center">
+                          <CalendarDays className="w-12 h-12 text-muted-foreground" />
+                        </div>
+                      )}
 
-                    {/* OVERLAY */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      <div className="absolute bottom-0 left-0 right-0 p-2 sm:p-3">
-                        <h3 className="font-heading text-sm sm:text-base md:text-lg font-bold text-white mb-1 line-clamp-1">
-                          {item.title}
-                        </h3>
-
-                        {item.year && (
-                          <p className="text-white/80 text-xs sm:text-sm">
+                      {/* OVERLAY */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-100 sm:opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <div className="absolute bottom-0 left-0 right-0 p-2 sm:p-3">
+                          <h3 className="font-heading text-xl sm:text-2xl md:text-3xl font-bold text-white mb-1">
                             {item.year}
+                          </h3>
+
+                          <p className="text-white/80 text-xs sm:text-sm">
+                            View albums
                           </p>
-                        )}
+                        </div>
+                      </div>
+
+                      {/* ICON */}
+                      <div className="absolute top-2 sm:top-3 right-2 sm:right-3 w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 bg-white/90 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <CalendarDays className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 text-foreground" />
                       </div>
                     </div>
-
-                    {/* ICON */}
-                    <div className="absolute top-2 sm:top-3 right-2 sm:right-3 w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 bg-white/90 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      <Maximize2 className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 text-foreground" />
-                    </div>
-                  </div>
+                  </Link>
                 </motion.div>
               ))}
 
@@ -412,79 +421,6 @@ const GalleryPage = () => {
           </div>
         </div>
       </section>
-
-      {/* PHOTO MODAL */}
-      <AnimatePresence>
-        {selectedPhoto && (
-          <motion.div
-            initial={{
-              opacity: 0,
-            }}
-            animate={{
-              opacity: 1,
-            }}
-            exit={{
-              opacity: 0,
-            }}
-            className="fixed inset-0 z-50 bg-black/95 flex items-center justify-center"
-            onClick={closeLightbox}
-          >
-            <div className="relative max-w-6xl max-h-[90vh] mx-4">
-              <img
-                src={urlFor(selectedPhoto.image).url()}
-                alt={selectedPhoto.title}
-                className="max-w-full max-h-[90vh] object-contain"
-                onClick={(e) => e.stopPropagation()}
-              />
-
-              {/* PREV */}
-              <button
-                onClick={(e) => {
-                  e.stopPropagation();
-
-                  navigatePhoto("prev");
-                }}
-                className="absolute left-4 top-1/2 transform -translate-y-1/2 w-12 h-12 bg-white/20 hover:bg-white/30 rounded-full flex items-center justify-center text-white transition-colors"
-              >
-                <ChevronLeft className="w-6 h-6" />
-              </button>
-
-              {/* NEXT */}
-              <button
-                onClick={(e) => {
-                  e.stopPropagation();
-
-                  navigatePhoto("next");
-                }}
-                className="absolute right-4 top-1/2 transform -translate-y-1/2 w-12 h-12 bg-white/20 hover:bg-white/30 rounded-full flex items-center justify-center text-white transition-colors"
-              >
-                <ChevronRight className="w-6 h-6" />
-              </button>
-
-              {/* CLOSE */}
-              <button
-                onClick={closeLightbox}
-                className="absolute top-4 right-4 w-12 h-12 bg-white/20 hover:bg-white/30 rounded-full flex items-center justify-center text-white transition-colors"
-              >
-                <X className="w-6 h-6" />
-              </button>
-
-              {/* TITLE */}
-              <div className="absolute bottom-4 left-4 right-4 bg-black/60 backdrop-blur-sm rounded-lg p-4">
-                <h3 className="font-heading text-xl font-bold text-white mb-1">
-                  {selectedPhoto.title}
-                </h3>
-
-                {selectedPhoto.year && (
-                  <p className="text-white/60 text-xs mt-1">
-                    {selectedPhoto.year}
-                  </p>
-                )}
-              </div>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
 
       {/* VIDEO MODAL */}
       <AnimatePresence>
