@@ -33,15 +33,15 @@ import { Turnstile } from "@marsidev/react-turnstile";
 const StudentsCornerPage = () => {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
-    name: "Rahul Menon",
-    email: "rahul.menon@example.com",
-    phone: "+91 98765 43210",
-    batch: "2023",
+    name: "",
+    email: "",
+    phone: "",
+    batch: "",
     course: "",
-    current_occupation: "Software Engineer",
-    company: "TechNova Solutions",
-    address: "Kozhikode, Kerala, India",
-    linkedin_profile: "https://www.linkedin.com/in/rahulmenon",
+    current_occupation: "",
+    company: "",
+    address: "",
+    linkedin_profile: "",
     website: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
