@@ -67,22 +67,22 @@ const StudentsCornerPage = () => {
       if (!turnstileToken) {
         throw new Error("Cloudflare Turnstile verification is required.");
       }
-      // await client.create({
-      //   _type: "alumniAssociation",
+      await client.create({
+        _type: "alumniAssociation",
 
-      //   name: formData.name,
-      //   email: formData.email,
-      //   phone: formData.phone,
-      //   batch: formData.batch,
-      //   course: formData.course,
-      //   current_occupation: formData.current_occupation,
-      //   company: formData.company,
-      //   address: formData.address,
-      //   linkedin_profile: formData.linkedin_profile,
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+        batch: formData.batch,
+        course: formData.course,
+        current_occupation: formData.current_occupation,
+        company: formData.company,
+        address: formData.address,
+        linkedin_profile: formData.linkedin_profile,
 
-      //   contacted: false,
-      //   submittedAt: new Date().toISOString(),
-      // });
+        contacted: false,
+        submittedAt: new Date().toISOString(),
+      });
 
       setSubmitMessage("Registration submitted successfully!");
 

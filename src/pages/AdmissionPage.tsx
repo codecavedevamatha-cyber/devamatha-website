@@ -53,21 +53,21 @@ const AdmissionPage = () => {
         throw new Error("Cloudflare Turnstile verification is required.");
       }
 
-      // await client.create({
-      //   _type: "managementQuota",
+      await client.create({
+        _type: "managementQuota",
 
-      //   name: formData.name,
-      //   email: formData.email,
-      //   phone: formData.phone,
-      //   course: formData.course,
-      //   percentage: formData.percentage,
-      //   previous_school: formData.previous_school,
-      //   address: formData.address,
-      //   parent_name: formData.parent_name,
-      //   parent_phone: formData.parent_phone,
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+        course: formData.course,
+        percentage: formData.percentage,
+        previous_school: formData.previous_school,
+        address: formData.address,
+        parent_name: formData.parent_name,
+        parent_phone: formData.parent_phone,
 
-      //   submittedAt: new Date().toISOString(),
-      // });
+        submittedAt: new Date().toISOString(),
+      });
 
       setSubmitMessage("Enquiry submitted successfully!");
 
