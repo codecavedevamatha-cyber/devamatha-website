@@ -13,7 +13,7 @@ const navLinks = [
   { label: "Gallery", href: "/gallery" },
   { label: "IQAC", href: "/iqac" },
   { label: "Student's Corner", href: "/students-corner" },
-  { label: "Mandatory Disclosure", href: "/mandatory-disclosure" },
+  { label: "Scholership", href: "/scholarship" },
 ];
 
 const Header = () => {

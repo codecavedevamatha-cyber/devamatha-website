@@ -18,6 +18,7 @@ import AdmissionPage from "./pages/AdmissionPage";
 import IQACPage from "./pages/IQACPage";
 import NewsPage from "./pages/NewsPage";
 import FacilitiesPage from "./pages/FacilitiesPage";
+import ScholarshipPage from "./pages/ScholarshipPage";
 import CourseDetailPage from "./pages/CourseDetailPage";
 import CommitteesPage from "./pages/CommitteesPage";
 import AntiRaggingPage from "./pages/committee/AntiRaggingPage";
@@ -98,6 +99,7 @@ const App = () => {
             <Route path="/gallery/category/:categoryId" element={<GalleryImagesPage />} />
             <Route path="/students-corner" element={<StudentsCornerPage />} />
             <Route path="/admission" element={<AdmissionPage />} />
+            <Route path="/scholarship" element={<ScholarshipPage />} />
             <Route path="/iqac" element={<IQACPage />} />
             <Route path="/news" element={<NewsPage />} />
             <Route path="/facilities" element={<FacilitiesPage />} />

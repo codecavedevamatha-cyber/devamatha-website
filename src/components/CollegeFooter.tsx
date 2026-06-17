@@ -79,8 +79,9 @@ const CollegeFooter = () => (
                 url: "https://kannuruniversity.ac.in/",
               },
               {
-                label: "K-Reap Course Selection",
-                url: "https://kannuradm.kreap.co.in/applicant/?#/login?client=KANNUR",
+                label: "Mandatory Disclosure",
+                url: "/asset/file/mandatory.pdf",
+                download: true,
               },
               {
                 label: "K-Reap Student Login",
@@ -94,8 +95,9 @@ const CollegeFooter = () => (
               <li key={link.label}>
                 <motion.a
                   href={link.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  target={link.download ? undefined : "_blank"}
+                  rel={link.download ? undefined : "noopener noreferrer"}
+                  download={link.download ? "" : undefined}
                   className="hover:text-accent transition-colors inline-flex items-center gap-1 group text-gray-700"
                   whileHover={{ x: 5 }}
                 >
