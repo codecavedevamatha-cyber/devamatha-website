@@ -14,7 +14,7 @@ export const courses: Course[] = [
     id: "bba-hospital-administration",
     name: "BBA<br/>Hospital Administration",
     description: "BBA in Hospital Administration is a FYUG programme that focuses on the management and administration of hospitals, healthcare systems, and medical services. It combines core business administration principles with specialised healthcare management knowledge to prepare students for leadership roles in the healthcare sector.",
-    internship: "To enhance practical exposure and industry relevance, the institution has signed MoUs with reputed hospitals such as ASTER MIMS Baby Memorial Hospital, Indira Gandhi Co-Operative Hospital, and St. Joseph's Hospital.",
+    internship: "To enhance practical exposure and industry relevance, the institution has signed MoUs with reputed hospitals such as ASTER MIMS, Baby Memorial Hospital, Indira Gandhi Co-Operative Hospital, and St. Joseph's Hospital.",
     careerOpportunities: [
       "Hospital Administrator",
       "Healthcare Manager",
