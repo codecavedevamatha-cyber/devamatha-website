@@ -60,14 +60,14 @@ const ScholarshipPage = () => {
           >
             Scholarship
           </motion.h1>
-          <motion.p
+          {/* <motion.p
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.35 }}
             className="font-display text-lg md:text-2xl text-primary-foreground/90 max-w-3xl mx-auto"
           >
             Student support schemes and official scholarship portals
-          </motion.p>
+          </motion.p> */}
         </div>
 
         <div className="absolute bottom-0 left-0 right-0">
