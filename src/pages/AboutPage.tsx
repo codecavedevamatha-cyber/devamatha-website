@@ -88,7 +88,7 @@ const AboutPage = () => {
       </section>
 
       {/* Management Section */}
-      <section className="pt-16 pb-8 bg-secondary/30">
+      <section id="management" className="pt-16 pb-8 bg-secondary/30 scroll-mt-32">
         <div className="container max-w-7xl mx-auto px-2 sm:px-3 md:px-4">
           <div className="w-full">
             <div className="mb-6 text-center">
@@ -145,7 +145,7 @@ const AboutPage = () => {
       </section>
 
       {/* College Profile Section */}
-      <section className="pt-8 pb-12 bg-background">
+      <section id="college-profile" className="pt-8 pb-12 bg-background scroll-mt-32">
         <div className="container max-w-7xl mx-auto px-2 sm:px-3 md:px-4">
           <div className="w-full">
             <motion.div
@@ -214,7 +214,7 @@ const AboutPage = () => {
 
       
       {/* Vision & Mission Section */}
-      <section className="pt-8 pb-12 bg-background">
+      <section id="vision-mission" className="pt-8 pb-12 bg-background scroll-mt-32">
         <div className="container max-w-7xl mx-auto px-2 sm:px-3 md:px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -271,7 +271,7 @@ const AboutPage = () => {
       </section>
 
       {/* Leadership Section */}
-      <section className="pt-4 pb-8 bg-background relative overflow-hidden">
+      <section id="leadership" className="pt-4 pb-8 bg-background relative overflow-hidden scroll-mt-32">
         {/* Background Elements */}
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute top-[10%] left-[-10%] w-[50%] h-[50%] bg-accent/5 rounded-full blur-[120px]" />
@@ -358,7 +358,7 @@ const AboutPage = () => {
       </section>
 
       {/* Former Leadership Section */}
-      <section className="pt-8 pb-12 bg-background">
+      <section id="former-leadership" className="pt-8 pb-12 bg-background scroll-mt-32">
         <div className="container max-w-7xl mx-auto px-2 sm:px-3 md:px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}

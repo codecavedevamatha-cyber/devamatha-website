@@ -58,6 +58,7 @@ const IQACPage = () => {
           
           {/* About IQAC */}
           <motion.div
+            id="about-iqac"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -81,6 +82,7 @@ const IQACPage = () => {
 
           {/* Objectives */}
           <motion.div
+            id="objective"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -103,6 +105,7 @@ const IQACPage = () => {
 
           {/* IQAC Team */}
           <motion.div
+            id="iqac-team"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}

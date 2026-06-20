@@ -221,7 +221,7 @@ const GalleryPage = () => {
       </section>
 
       {/* CONTENT */}
-      <section className="section-padding bg-background">
+      <section id="gallery-content" className="section-padding bg-background scroll-mt-32">
         <div className="container max-w-7xl mx-auto px-2 sm:px-3 md:px-4">
           {/* FILTER */}
           <motion.div

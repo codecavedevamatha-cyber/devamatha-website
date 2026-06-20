@@ -1,46 +1,44 @@
-import React from 'react';
-import { useLocation, Link } from 'react-router-dom';
-import { ChevronRight, Home } from 'lucide-react';
-import SchemaOrg from './SchemaOrg';
+import React from "react";
+import { useLocation, Link } from "react-router-dom";
+import { ChevronRight, Home } from "lucide-react";
+import SchemaOrg from "./SchemaOrg";
 
 const Breadcrumb: React.FC = () => {
   const location = useLocation();
-  const pathnames = location.pathname.split('/').filter((x) => x);
+  const pathnames = location.pathname.split("/").filter((x) => x);
 
   const breadcrumbItems = [
     {
-      '@type': 'ListItem',
+      "@type": "ListItem",
       position: 1,
-      name: 'Home',
-      item: 'https://www.devamathacollege.ac.in/'
-    }
+      name: "Home",
+      item: "https://www.devamathacollege.ac.in/",
+    },
   ];
 
-  const breadcrumbs = [
-    { name: 'Home', path: '/' }
-  ];
+  const breadcrumbs = [{ name: "Home", path: "/" }];
 
-  let accumulatedPath = '';
+  let accumulatedPath = "";
 
   pathnames.forEach((name, index) => {
     accumulatedPath += `/${name}`;
     const isLast = index === pathnames.length - 1;
-    
+
     const formattedName = name
-      .split('-')
+      .split("-")
       .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-      .join(' ');
+      .join(" ");
 
     breadcrumbs.push({
       name: formattedName,
-      path: accumulatedPath
+      path: accumulatedPath,
     });
 
     breadcrumbItems.push({
-      '@type': 'ListItem',
+      "@type": "ListItem",
       position: index + 2,
       name: formattedName,
-      item: `https://www.devamathacollege.ac.in${accumulatedPath}`
+      item: `https://www.devamathacollege.ac.in${accumulatedPath}`,
     });
   });
 
@@ -51,29 +49,36 @@ const Breadcrumb: React.FC = () => {
 
   return (
     <>
-      <SchemaOrg 
-        type="BreadcrumbList" 
-        data={{ breadcrumbs: breadcrumbItems }} 
+      <SchemaOrg
+        type="BreadcrumbList"
+        data={{ breadcrumbs: breadcrumbItems }}
       />
-      <nav className="flex items-center space-x-2 text-sm text-muted-foreground py-4 px-4 md:px-8 bg-background/50 border-b border-border/50">
-        <Link to="/" className="flex items-center hover:text-foreground transition-colors">
-          <Home className="w-4 h-4" />
-        </Link>
-        {breadcrumbs.slice(1).map((breadcrumb, index) => (
-          <React.Fragment key={breadcrumb.path}>
-            <ChevronRight className="w-4 h-4 text-muted-foreground/50" />
-            {index === breadcrumbs.length - 2 ? (
-              <span className="text-foreground font-medium">{breadcrumb.name}</span>
-            ) : (
-              <Link
-                to={breadcrumb.path}
-                className="hover:text-foreground transition-colors"
-              >
-                {breadcrumb.name}
-              </Link>
-            )}
-          </React.Fragment>
-        ))}
+      <nav className="bg-background/50 border-b border-border/50">
+        <div className="container flex min-h-14 items-center gap-2 pl-6 text-sm text-muted-foreground sm:pl-14 md:pl-11 lg:pl-9 xl:pl-9">
+          <Link
+            to="/"
+            className="flex items-center hover:text-foreground transition-colors"
+          >
+            <Home className="w-4 h-4" />
+          </Link>
+          {breadcrumbs.slice(1).map((breadcrumb, index) => (
+            <React.Fragment key={breadcrumb.path}>
+              <ChevronRight className="w-4 h-4 text-muted-foreground/50" />
+              {index === breadcrumbs.length - 2 ? (
+                <span className="text-foreground font-medium">
+                  {breadcrumb.name}
+                </span>
+              ) : (
+                <Link
+                  to={breadcrumb.path}
+                  className="hover:text-foreground transition-colors"
+                >
+                  {breadcrumb.name}
+                </Link>
+              )}
+            </React.Fragment>
+          ))}
+        </div>
       </nav>
     </>
   );

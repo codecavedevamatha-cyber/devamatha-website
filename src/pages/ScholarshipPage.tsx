@@ -103,6 +103,11 @@ const ScholarshipPage = () => {
 
               return (
                 <motion.article
+                  id={
+                    scholarship.title === "AICTE Scholarships for Students"
+                      ? "aicte-scholarships"
+                      : "e-grantz-scholarship"
+                  }
                   key={scholarship.title}
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}

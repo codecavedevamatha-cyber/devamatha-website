@@ -263,7 +263,7 @@ const CoursesPage = () => {
       </section>
 
       {/* Programmes Overview */}
-      <section className="py-6 sm:py-8 bg-background">
+      <section id="choose-programme" className="py-6 sm:py-8 bg-background scroll-mt-32">
         <div className="container max-w-7xl mx-auto px-2 sm:px-3 md:px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}

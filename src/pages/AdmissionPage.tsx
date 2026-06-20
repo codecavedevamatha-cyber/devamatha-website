@@ -155,6 +155,7 @@ const AdmissionPage = () => {
         <div className="container max-w-7xl mx-auto px-4 space-y-12">
           {/* Admission Portal Section */}
           <motion.div
+            id="admission-portal"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -230,6 +231,7 @@ const AdmissionPage = () => {
 
           {/* Prospectus Section */}
           <motion.div
+            id="prospectus"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -276,6 +278,7 @@ const AdmissionPage = () => {
 
           {/* Admission Support Section */}
           <motion.div
+            id="admission-support"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -531,6 +534,7 @@ const AdmissionPage = () => {
 
           {/* Admission Process Section */}
           <motion.div
+            id="admission-process"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -577,6 +581,7 @@ const AdmissionPage = () => {
 
           {/* Documents to be Produced Section */}
           <motion.div
+            id="documents-required"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}

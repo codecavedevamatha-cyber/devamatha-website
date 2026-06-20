@@ -169,6 +169,7 @@ const StudentsCornerPage = () => {
         <div className="container max-w-7xl mx-auto px-4 space-y-12">
           {/* K-Reap Portal Section */}
           <motion.div
+            id="k-reap-portal"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -244,6 +245,7 @@ const StudentsCornerPage = () => {
 
           {/* Syllabus Section */}
           <motion.div
+            id="syllabus"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -290,6 +292,7 @@ const StudentsCornerPage = () => {
 
           {/* Committees Section */}
           <motion.div
+            id="committees"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -517,6 +520,7 @@ const StudentsCornerPage = () => {
 
           {/* Clubs Section */}
           <motion.div
+            id="clubs"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -900,6 +904,7 @@ const StudentsCornerPage = () => {
 
           {/* Alumni Association Section */}
           <motion.div
+            id="alumni-registration"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
