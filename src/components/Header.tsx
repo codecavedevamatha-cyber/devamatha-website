@@ -8,35 +8,34 @@ const navLinks = [
   {
     label: "Home",
     href: "/",
-    dropdownAlign: "left",
-    children: [
-      { label: "About College", href: "/#about" },
-      { label: "Departments", href: "/#departments" },
-      { label: "Admissions", href: "/#admissions" },
-      { label: "Gallery", href: "/#gallery" },
-      { label: "Contact", href: "/#contact" },
-    ],
   },
   {
     label: "About",
     href: "/about",
+    dropdownAlign: "left",
     children: [
       { label: "Management", href: "/about#management" },
       { label: "College Profile", href: "/about#college-profile" },
       { label: "Vision & Mission", href: "/about#vision-mission" },
-      { label: "Leadership", href: "/about#leadership" },
-      { label: "Former Leadership", href: "/about#former-leadership" },
+      { label: "Patron, Manager, Principal", href: "/about#leadership" },
+      { label: "Former Managers", href: "/about#former-leadership" },
+      { label: "Former Principals", href: "/about#former-leadership" },
     ],
   },
   {
     label: "Programmes",
     href: "/courses",
     children: [
-      { label: "Choose Your Programme", href: "/courses#choose-programme" },
-      { label: "Undergraduate", href: "/courses#choose-programme" },
-      { label: "Postgraduate", href: "/courses#choose-programme" },
       { label: "BBA Hospital Administration", href: "/course/bba-ha" },
+      { label: "B.Com Logistics and Supply Chain Management", href: "/course/bcom-logistics" },
       { label: "B.Sc AI and Data Science", href: "/course/bsc-ai" },
+      { label: "B.Com Business Analytics", href: "/course/bcom-ba" },
+      { label: "Bachelor of Computer Applications (BCA)", href: "/course/bca" },
+      { label: "Bachelor of Business Administration (BBA)", href: "/course/bba" },
+      { label: "B.Com Finance", href: "/course/bcom-finance" },
+      { label: "B.Com Co-Operation", href: "/course/bcom-cooperation" },
+      { label: "BA English", href: "/course/ba-english" },
+      { label: "MA English", href: "/course/ma-english" },
       { label: "M.Com Finance", href: "/course/mcom-finance" },
     ],
   },
@@ -45,10 +44,13 @@ const navLinks = [
     href: "/departments",
     children: [
       { label: "English", href: "/departments/english" },
+      { label: "Malayalam", href: "/departments/malayalam" },
+      { label: "Hindi", href: "/departments/hindi" },
       { label: "Management Studies", href: "/departments/management" },
       { label: "Computer Applications", href: "/departments/computer" },
       { label: "Commerce", href: "/departments/commerce" },
       { label: "Physical Education", href: "/departments/physical" },
+      { label: "Non-Teaching Staff", href: "/departments/non-teaching" },
     ],
   },
   {
@@ -58,7 +60,7 @@ const navLinks = [
       { label: "Admission Portal", href: "/admission#admission-portal" },
       { label: "Prospectus", href: "/admission#prospectus" },
       { label: "Admission Support", href: "/admission#admission-support" },
-      { label: "Management Quota Seats", href: "/admission#management-quota-form" },
+      { label: "Apply Online", href: "/admission#management-quota-form" },
       { label: "Admission Process", href: "/admission#admission-process" },
       { label: "Documents Required", href: "/admission#documents-required" },
     ],
@@ -69,14 +71,13 @@ const navLinks = [
     children: [
       { label: "Photos", href: "/gallery#gallery-content" },
       { label: "Videos", href: "/gallery#gallery-content" },
-      { label: "Year-wise Albums", href: "/gallery#gallery-content" },
     ],
   },
   {
     label: "IQAC",
     href: "/iqac",
     children: [
-      { label: "About IQAC", href: "/iqac#about-iqac" },
+      { label: "Internal Quality Assurance Cell", href: "/iqac#about-iqac" },
       { label: "Objective", href: "/iqac#objective" },
       { label: "IQAC Team", href: "/iqac#iqac-team" },
     ],
@@ -114,6 +115,7 @@ const Header = () => {
   const navigate = useNavigate();
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [mobileExpanded, setMobileExpanded] = useState<string | null>(null);
   const [showScrollTop, setShowScrollTop] = useState(false);
 
   const scrollToHash = useCallback((href: string) => {
@@ -240,7 +242,13 @@ const Header = () => {
             ))}
           </nav>
 
-          <button className="ml-auto lg:hidden p-2 text-foreground" onClick={() => setMobileOpen(!mobileOpen)}>
+          <button
+            className="ml-auto lg:hidden p-2 text-foreground"
+            onClick={() => {
+              setMobileOpen((open) => !open);
+              setMobileExpanded(null);
+            }}
+          >
             <AnimatePresence mode="wait">
               {mobileOpen ? (
                 <motion.div key="close" initial={{ rotate: -90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: 90, opacity: 0 }}>
@@ -265,7 +273,7 @@ const Header = () => {
               transition={{ duration: 0.3 }}
               className="lg:hidden bg-card border-t border-border overflow-hidden"
             >
-              <nav className="container py-4 flex flex-col gap-1">
+              <nav className="container py-4 flex max-h-[calc(100dvh-5.5rem)] flex-col gap-1 overflow-y-auto overscroll-contain">
                 {navLinks.map((link, i) => (
                   <motion.div
                     key={link.href}
@@ -273,32 +281,67 @@ const Header = () => {
                     animate={{ x: 0, opacity: 1 }}
                     transition={{ delay: i * 0.05 }}
                   >
-                    <Link
-                      to={link.href}
-                      onClick={() => {
-                        scrollToHash(link.href);
-                        setMobileOpen(false);
-                      }}
-                      className="block px-4 py-3 text-sm font-medium text-foreground/80 hover:text-primary hover:bg-secondary rounded-md transition-colors"
-                    >
-                      {link.label}
-                    </Link>
+                    <div className="flex items-center gap-1 rounded-md hover:bg-secondary">
+                      <Link
+                        to={link.href}
+                        onClick={() => {
+                          scrollToHash(link.href);
+                          setMobileOpen(false);
+                          setMobileExpanded(null);
+                        }}
+                        className="min-w-0 flex-1 px-4 py-3 text-sm font-medium text-foreground/80 hover:text-primary transition-colors"
+                      >
+                        {link.label}
+                      </Link>
+                      {link.children?.length ? (
+                        <button
+                          type="button"
+                          aria-label={`Toggle ${link.label} submenu`}
+                          aria-expanded={mobileExpanded === link.href}
+                          onClick={() =>
+                            setMobileExpanded((current) =>
+                              current === link.href ? null : link.href,
+                            )
+                          }
+                          className="mr-1 flex h-10 w-10 items-center justify-center rounded-md text-foreground/70 hover:bg-secondary hover:text-primary"
+                        >
+                          <ChevronDown
+                            className={`h-4 w-4 transition-transform ${
+                              mobileExpanded === link.href ? "rotate-180" : ""
+                            }`}
+                          />
+                        </button>
+                      ) : null}
+                    </div>
                     {link.children?.length ? (
-                      <div className="ml-4 mb-2 grid gap-1 border-l border-border pl-3">
-                        {link.children.map((child) => (
-                          <Link
-                            key={`${link.href}-${child.href}-${child.label}`}
-                            to={child.href}
-                            onClick={() => {
-                              scrollToHash(child.href);
-                              setMobileOpen(false);
-                            }}
-                            className="rounded-md px-3 py-2 text-xs font-medium text-muted-foreground transition-colors hover:bg-secondary hover:text-primary"
+                      <AnimatePresence initial={false}>
+                        {mobileExpanded === link.href && (
+                          <motion.div
+                            initial={{ height: 0, opacity: 0 }}
+                            animate={{ height: "auto", opacity: 1 }}
+                            exit={{ height: 0, opacity: 0 }}
+                            transition={{ duration: 0.2 }}
+                            className="ml-4 mb-2 overflow-hidden border-l border-border pl-3"
                           >
-                            {child.label}
-                          </Link>
-                        ))}
-                      </div>
+                            <div className="grid gap-1 py-1">
+                              {link.children.map((child) => (
+                                <Link
+                                  key={`${link.href}-${child.href}-${child.label}`}
+                                  to={child.href}
+                                  onClick={() => {
+                                    scrollToHash(child.href);
+                                    setMobileOpen(false);
+                                    setMobileExpanded(null);
+                                  }}
+                                  className="rounded-md px-3 py-2 text-xs font-medium text-muted-foreground transition-colors hover:bg-secondary hover:text-primary"
+                                >
+                                  {child.label}
+                                </Link>
+                              ))}
+                            </div>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
                     ) : null}
                   </motion.div>
                 ))}
@@ -307,6 +350,7 @@ const Header = () => {
                   onClick={() => {
                     navigate('/admission');
                     setMobileOpen(false);
+                    setMobileExpanded(null);
                   }}
                 >
                   Know More
