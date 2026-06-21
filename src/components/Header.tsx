@@ -116,6 +116,9 @@ const Header = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [mobileExpanded, setMobileExpanded] = useState<string | null>(null);
+  const [dismissedDesktopDropdown, setDismissedDesktopDropdown] = useState<
+    string | null
+  >(null);
   const [showScrollTop, setShowScrollTop] = useState(false);
 
   const scrollToHash = useCallback((href: string) => {
@@ -203,6 +206,7 @@ const Header = () => {
               <div
                 key={link.href}
                 className="group relative"
+                onMouseLeave={() => setDismissedDesktopDropdown(null)}
               >
                 <Link
                   to={link.href}
@@ -217,7 +221,11 @@ const Header = () => {
 
                 {link.children?.length ? (
                   <div
-                    className={`pointer-events-none absolute top-full ${getDropdownPosition(link.dropdownAlign)} z-50 min-w-60 pt-2 opacity-0 translate-y-2 transition-all duration-200 group-hover:pointer-events-auto group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:pointer-events-auto group-focus-within:translate-y-0 group-focus-within:opacity-100`}
+                    className={`pointer-events-none absolute top-full ${getDropdownPosition(link.dropdownAlign)} z-50 min-w-60 pt-2 opacity-0 translate-y-2 transition-all duration-200 ${
+                      dismissedDesktopDropdown === link.href
+                        ? "hidden"
+                        : "group-hover:pointer-events-auto group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:pointer-events-auto group-focus-within:translate-y-0 group-focus-within:opacity-100"
+                    }`}
                   >
                     <div className="overflow-hidden rounded-xl border border-border bg-white shadow-2xl shadow-college-navy/20 ring-1 ring-black/5">
                       <div className="border-b border-border bg-primary px-4 py-2 text-xs font-semibold uppercase tracking-wide text-primary-foreground">
@@ -228,7 +236,13 @@ const Header = () => {
                           <Link
                             key={`${link.href}-${child.href}-${child.label}`}
                             to={child.href}
-                            onClick={() => scrollToHash(child.href)}
+                            onClick={() => {
+                              scrollToHash(child.href);
+                              setDismissedDesktopDropdown(link.href);
+                              if (document.activeElement instanceof HTMLElement) {
+                                document.activeElement.blur();
+                              }
+                            }}
                             className="block px-4 py-2.5 text-sm font-medium text-gray-700 transition-colors hover:bg-secondary hover:text-primary focus:bg-secondary focus:text-primary focus:outline-none"
                           >
                             {child.label}
