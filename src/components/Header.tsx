@@ -27,11 +27,17 @@ const navLinks = [
     href: "/courses",
     children: [
       { label: "BBA Hospital Administration", href: "/course/bba-ha" },
-      { label: "B.Com Logistics and Supply Chain Management", href: "/course/bcom-logistics" },
+      {
+        label: "B.Com Logistics and Supply Chain Management",
+        href: "/course/bcom-logistics",
+      },
       { label: "B.Sc AI and Data Science", href: "/course/bsc-ai" },
       { label: "B.Com Business Analytics", href: "/course/bcom-ba" },
       { label: "Bachelor of Computer Applications (BCA)", href: "/course/bca" },
-      { label: "Bachelor of Business Administration (BBA)", href: "/course/bba" },
+      {
+        label: "Bachelor of Business Administration (BBA)",
+        href: "/course/bba",
+      },
       { label: "B.Com Finance", href: "/course/bcom-finance" },
       { label: "B.Com Co-Operation", href: "/course/bcom-cooperation" },
       { label: "BA English", href: "/course/ba-english" },
@@ -91,7 +97,10 @@ const navLinks = [
       { label: "Syllabus", href: "/students-corner#syllabus" },
       { label: "Committees", href: "/students-corner#committees" },
       { label: "Clubs", href: "/students-corner#clubs" },
-      { label: "Alumni Registration", href: "/students-corner#alumni-registration" },
+      {
+        label: "Alumni Registration",
+        href: "/students-corner#alumni-registration",
+      },
     ],
   },
   {
@@ -100,7 +109,10 @@ const navLinks = [
     dropdownAlign: "right",
     children: [
       { label: "AICTE Scholarships", href: "/scholarship#aicte-scholarships" },
-      { label: "e-Grantz Scholarship", href: "/scholarship#e-grantz-scholarship" },
+      {
+        label: "e-Grantz Scholarship",
+        href: "/scholarship#e-grantz-scholarship",
+      },
     ],
   },
 ];
@@ -161,19 +173,23 @@ const Header = () => {
       >
         <div className="container flex justify-between items-center py-4">
           <div className="flex items-center gap-6">
-            <span className="flex items-center gap-1.5"><Mail className="w-3.5 h-3.5" /> dmc@devamathacollege.ac.in</span>
-            <span className="flex items-center gap-1.5"><Phone className="w-3.5 h-3.5" /> 9188702610</span>
+            <span className="flex items-center gap-1.5">
+              <Mail className="w-3.5 h-3.5" /> dmc@devamathacollege.ac.in
+            </span>
+            <span className="flex items-center gap-1.5">
+              <Phone className="w-3.5 h-3.5" /> 9188702610
+            </span>
           </div>
           <div className="flex items-center gap-4">
-            <a 
-              href="tel:9400111818" 
+            <a
+              href="tel:9400111818"
               className="font-medium flex items-center gap-2 hover:text-accent transition-colors"
             >
               <Phone className="w-3.5 h-3.5" />
               Admission Nodal Officer - 9400111818
             </a>
-            <a 
-              href="https://feebook.southindianbank.bank.in/FeeBookUser/org?id=346" 
+            <a
+              href="https://feebook.southindianbank.bank.in/FeeBookUser/org?id=346"
               target="_blank"
               rel="noopener noreferrer"
               className="font-medium flex items-center gap-2 hover:text-accent transition-colors"
@@ -194,9 +210,9 @@ const Header = () => {
       >
         <div className="container flex min-h-[88px] items-center gap-3 py-2 xl:min-h-[104px] xl:gap-4">
           <Link to="/" className="flex flex-shrink-0 items-center">
-            <img 
-              src="/img/logo&typo.png" 
-              alt="Deva Matha College" 
+            <img
+              src="/img/logo&typo.png"
+              alt="Deva Matha College"
               className="h-16 md:h-20 xl:h-[88px] w-auto object-contain"
             />
           </Link>
@@ -239,7 +255,9 @@ const Header = () => {
                             onClick={() => {
                               scrollToHash(child.href);
                               setDismissedDesktopDropdown(link.href);
-                              if (document.activeElement instanceof HTMLElement) {
+                              if (
+                                document.activeElement instanceof HTMLElement
+                              ) {
                                 document.activeElement.blur();
                               }
                             }}
@@ -265,11 +283,21 @@ const Header = () => {
           >
             <AnimatePresence mode="wait">
               {mobileOpen ? (
-                <motion.div key="close" initial={{ rotate: -90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: 90, opacity: 0 }}>
+                <motion.div
+                  key="close"
+                  initial={{ rotate: -90, opacity: 0 }}
+                  animate={{ rotate: 0, opacity: 1 }}
+                  exit={{ rotate: 90, opacity: 0 }}
+                >
                   <X className="w-6 h-6" />
                 </motion.div>
               ) : (
-                <motion.div key="menu" initial={{ rotate: 90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: -90, opacity: 0 }}>
+                <motion.div
+                  key="menu"
+                  initial={{ rotate: 90, opacity: 0 }}
+                  animate={{ rotate: 0, opacity: 1 }}
+                  exit={{ rotate: -90, opacity: 0 }}
+                >
                   <Menu className="w-6 h-6" />
                 </motion.div>
               )}
@@ -359,10 +387,22 @@ const Header = () => {
                     ) : null}
                   </motion.div>
                 ))}
-                <Button 
+                <a
+                  href="https://feebook.southindianbank.bank.in/FeeBookUser/org?id=346"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-2 flex items-center justify-center rounded-md bg-primary px-4 py-3 text-sm font-semibold text-primary-foreground hover:bg-primary/90 transition-colors"
+                  onClick={() => {
+                    setMobileOpen(false);
+                    setMobileExpanded(null);
+                  }}
+                >
+                  Fee Payment
+                </a>
+                <Button
                   className="mt-2 bg-accent text-accent-foreground hover:bg-accent/90 font-semibold"
                   onClick={() => {
-                    navigate('/admission');
+                    navigate("/admission");
                     setMobileOpen(false);
                     setMobileExpanded(null);
                   }}
