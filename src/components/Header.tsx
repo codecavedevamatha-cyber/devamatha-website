@@ -201,6 +201,28 @@ const Header = () => {
         </div>
       </motion.div>
 
+      {/* Mobile Top Bar */}
+      <div className="md:hidden bg-primary text-primary-foreground">
+        <div className="container flex items-center justify-between px-4 py-3">
+          <a
+            href="tel:9188702610"
+            className="flex items-center gap-1.5 text-xs sm:text-sm font-medium"
+          >
+            <Phone className="w-4 h-4 shrink-0" />
+            <span>9188702610</span>
+          </a>
+
+          <a
+            href="https://feebook.southindianbank.bank.in/FeeBookUser/org?id=346"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-1.5 text-xs sm:text-sm font-medium"
+          >
+            <Mail className="w-4 h-4 shrink-0" />
+            <span>Fee Payment</span>
+          </a>
+        </div>
+      </div>
       {/* Main nav */}
       <motion.header
         initial={{ y: -80 }}
@@ -387,18 +409,7 @@ const Header = () => {
                     ) : null}
                   </motion.div>
                 ))}
-                <a
-                  href="https://feebook.southindianbank.bank.in/FeeBookUser/org?id=346"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mt-2 flex items-center justify-center rounded-md bg-primary px-4 py-3 text-sm font-semibold text-primary-foreground hover:bg-primary/90 transition-colors"
-                  onClick={() => {
-                    setMobileOpen(false);
-                    setMobileExpanded(null);
-                  }}
-                >
-                  Fee Payment
-                </a>
+
                 <Button
                   className="mt-2 bg-accent text-accent-foreground hover:bg-accent/90 font-semibold"
                   onClick={() => {
