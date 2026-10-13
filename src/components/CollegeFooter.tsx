@@ -213,7 +213,7 @@ const CollegeFooter = () => (
             </div>
             <div className="flex items-center gap-2">
               <Phone className="w-4 h-4 text-accent" />
-              <span>Admin: 918870260</span>
+              <span>Admin: 9188702610</span>
             </div>
             <div className="flex items-center gap-2">
               <Phone className="w-4 h-4 text-accent" />
